@@ -15,6 +15,24 @@
 Example project written using Marble.js framework
 </p>
 
+## Installation
+
+```bash
+$ yarn
+````
+
+## Basic commands
+
+```bash
+$ yarn start           ## run server
+$ yarn watch           ## run server in watch mode (development)
+$ yarn build           ## build the app
+$ yarn lint            ## lint TypeScript files
+$ yarn test            ## run tests
+$ yarn test:watch      ## run tests in watch mode
+$ yarn test:coverage   ## run tests with code coverage summary
+```
+
 ## License
 
 marble.js is MIT licensed
