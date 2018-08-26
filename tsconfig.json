@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "noEmitOnError": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "pretty": true,
+    "strict": true,
+    "target": "es6",
+    "lib": [
+      "dom",
+      "es7"
+    ],
+    "typeRoots": [
+      "./node_modules/@types",
+    ]
+  },
+  "include": [
+    "./node_modules/@types",
+    "./src/**/*.ts"
+  ],
+  "exclude": [
+    "**/*.spec.ts"
+  ]
+}

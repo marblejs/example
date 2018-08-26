@@ -1,0 +1,27 @@
+sudo: false
+dist: trusty
+
+language: node_js
+
+node_js:
+  - "8"
+
+cache:
+  directories:
+    - node_modules
+
+git:
+  submodules: false
+
+install:
+  - npm install -g codecov
+  - npm install
+
+script:
+  - npm run test:coverage
+  - codecov
+
+branches:
+  only:
+  - master
+  - develop
