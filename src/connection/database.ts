@@ -17,6 +17,6 @@ export namespace Database {
   export const connect = () =>
     mongoose
       .connect(url, { useNewUrlParser: true })
-      .then((onOpen))
+      .then(onOpen)
       .catch(onError);
 }
