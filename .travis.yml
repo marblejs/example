@@ -1,35 +1,27 @@
 sudo: false
 dist: trusty
-
 language: node_js
-
 node_js:
-  - "8"
-
+- '8'
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 git:
   submodules: false
-
 install:
-  - cp src/config/env.ts.dist src/config/env.ts
-  - npm install -g codecov
-  - npm install -g yarn
-  - yarn
-
+- cp src/config/env.ts.dist src/config/env.ts
+- npm install -g codecov
+- npm install -g yarn
+- yarn
 script:
-  - yarn test:coverage
-  - codecov
-
+- yarn test:coverage
+- codecov
 branches:
   only:
   - master
   - develop
-
 deploy:
   provider: heroku
   api_key:
-    secure: "IErJBEa8nlOriqL96Mtz8Y5SRIEL2FGQwusYL/9BYeCIsdRO/3/0phEw7wTK30zkel5TYG7BVKQF/vqqs+Zc7B9QkojzrMPs+OlHKnIK4xOkw6XYu88G03df8UIOZOqIyOoPM3qlDETtP28uve51gDW8yVmRosC0Pw7v5RfOmBNWzknrigD7K4WvfOqnOyqpLihnSIw0w3/EdBdRgOwlSd/IPqUNLRJrpu3PfWA90lw3WpnoNfy2unRB+NPVhtwoy6bWgd9X565ovv6duuD0RObboOz9m6mAZGFyNwcZP54BunzlxxGj6RmFDGoNdXjYpKebxyFxQdbg1GXo5PfJXXn1CMZSYyXfWzoOyHEPULes7ZPE3XytiV41nYcn67OXckIP7vd2Zft9fbXuwLeHBxgR7I+WjfWwBC7xCkzBjn5svoFXXI9GeLqU2z5oEjHYQsTrf8vXvxjgwe3t8KgjjwMKxpDCqfQ/4x6aZJ0nNHM603xzXc63RXQOT2K696g/tFSjJoCLnxyMF2mNb1Ng7zospEJm7WtLS2UB0yzdVdeSFk1hpZFQLqVW+zy6F8W5kwoxOWtGXYoafcwR+ABuiYl+sJHBR5/sQktwE68v7QQGpxGj+hUqCVE8ye+g8cMTrHJNI/NMAdrCt+ot6eOOTUqZHtxwUfNf+5LYwB+a1fQ="
+    secure: VhrEjeZYcokn+aX3+O0ZTtmK8YyOaYnXxEIrmjE+fiXQFXn5yG+1Z8zLbgnb4dMWtsxXmjcL381pwpGrWCOBVQ/KLhj7S0MJakAR4pjgSmmfzLkTpqRiRwbQgV/3284taN70tw4K5f3rEXaR8R3ac/FiIHiaMDOGXhLGN9ANcYuGoHXmYWtB9n95xiTa0+nFxyr4UIe1B5I4WRQAQZ9jAthcW9l/XygINz6dSf4dmpcvAfpsDFb5EHwhZO6Ra/2xw8SoGUEF5ZFLGNvaZei4+nDUmWN2h5pLLNGy0nRIbe9/CCwRZTIu47gvjIOrb8HMnOAqvRRxBQmvL5tsXah78Dj8pqRTYbF5WwQj971oYgefRCZ2louB325pNWnYIWJZKl7ciUsYhKUiHHri1jFgBHTpWHwzwmGVuvzgEp5HdE9kxgmXgZuU0EjZPcF0Hav2h4l0Rg8VXpNfkyZhwzG4HPwAlASgKM0vmb0ZQqtrXNSERO16XR2L025cBhQhHXiEnwLuOENoHtubqbIIWXgFt741FFPn/5H/U7jXMJcQRmpZU5tOArxJHmdQE4qyZVgwxZ2H2KwVHgfKsK4jJP39MjMIyEwBUyiNFNnDfDso56N870Kl4pMwPllYTBRlzrMWn7O61GKKA92YTHvxM7/R213jUgXG4+9Tp28PSOTj9WU=
   app: marblejs-example
