@@ -1,14 +1,12 @@
 import { EffectFactory, HttpError, HttpStatus, combineRoutes } from '@marblejs/core';
 import { throwError } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { mapTo, switchMap } from 'rxjs/operators';
 
 const root$ = EffectFactory
   .matchPath('/')
   .matchType('GET')
   .use(req$ => req$.pipe(
-    map(req => ({
-      body: `API root @ ${req.url}`,
-    })),
+    mapTo({ body: `API version: v1` }),
   ));
 
 const notFound$ = EffectFactory
