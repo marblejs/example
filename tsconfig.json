@@ -5,6 +5,7 @@
     "experimentalDecorators": true,
     "module": "commonjs",
     "moduleResolution": "node",
+    "sourceMap": true,
     "noImplicitAny": false,
     "noEmitOnError": true,
     "forceConsistentCasingInFileNames": true,

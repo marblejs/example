@@ -1,0 +1,27 @@
+sudo: false
+dist: trusty
+language: node_js
+node_js:
+- '8'
+cache:
+  directories:
+  - node_modules
+git:
+  submodules: false
+install:
+- cp src/config/env.ts.dist src/config/env.ts
+- npm install -g codecov
+- npm install -g yarn
+- yarn
+script:
+- yarn test:coverage
+- codecov
+branches:
+  only:
+  - master
+  - develop
+deploy:
+  provider: heroku
+  api_key:
+    secure: PGacc9V8sF4Nvj3jL1Kf/m+3U7Y5vUgFWUN1ZJalqDXByqoq5isHyxN5Qv4daUGsWP91dfn7fMt6lNEpIE5x7P3+bS3h0VuwLegPzzXlmsSZ3QNqKnXrpkWBak97J8wUEswthL1+S6yWfRBkQoGAe2WQo5DeRe7g4Cd9UIFYNqxcPyWKDVcaxemLNEb05VQL0hNyE/GPMiavx4ftWMP/62Y9MTfwsFvJaN1FDcfzK9okBRmAZLbVS+uSnoAfA3cbTu8B8zOtLRGr/dQ0BldDQw40Le+yS8NRnMWN+bD/QzH+172un5poifJcNZB5CpAQr3LITcbewj3Voi/8tIeZqG+Iw8ock/lpD+3rla4L9sXTnI0awvtWClI5U9F9eR+rOoWR6X/qD1lg59eos6OLoNrPBMlwBN6bwrD5vbyB7kuOqsXf3GS9as2y7Huo/VHhcBoNPsqHFS5Fjme+MI1bn64zgkO2nxFPzFeSk8U9y9FH54I9hSv3d3Zbo4v2t2jIO5TdXWnNtov9Ad7cqMOneuWCDnbK9xv08tGksRpRBm1esDkOM1WOiBzuRskbCIflbHhRhAy/XoIFOtaJ+tf1w5cDHVU156hN2VOuzCWj0ggLcxWa3evfAI1Wgsb7MQkh29O0TXFjdOx+7hqRIM1uwPJHvFH6k8RuRgOvOC1NzQU=
+  app: marblejs-example
