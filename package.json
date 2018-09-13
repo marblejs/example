@@ -4,13 +4,14 @@
   "description": "Example project written using Marble.js framework",
   "main": "dist/index.js",
   "scripts": {
+    "heroku-prebuild": "cp ./src/config/env.ts.dist ./src/config/env.ts",
     "postinstall": "yarn build",
     "build": "tsc",
     "start": "yarn start:prod",
     "start:dev": "ts-node --project tsconfig.json src/index.ts",
     "start:prod": "node dist/index.js",
     "watch": "nodemon --watch src --ext ts --ignore '*.spec.ts' --exec yarn start",
-    "lint": "tslint --config tslint.json --project tsconfig.spec.json",
+    "lint": "tslint --config tslint.json --project tsconfig.json",
     "test": "jest --expand",
     "test:coverage": "jest --expand --coverage",
     "test:watch": "jest --expand --onlyChanged --watch"

@@ -19,7 +19,7 @@ export namespace Server {
 
   export const create = async (app: (req: IncomingMessage, res: ServerResponse) => void) =>
     createServer(app)
-      .listen(port, host, onListen)
+      .listen(port, onListen)
       .on('close', onClose)
       .on('error', onError);
 }
