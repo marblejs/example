@@ -5,9 +5,9 @@
 </p>
 
 <p align="center">
-<img src="https://travis-ci.com/marblejs/marble-example.svg?branch=master" alt="Travis-CI status" height="18">
-<a href="https://codecov.io/gh/marblejs/marble-example?branch=master">
-  <img src="https://codecov.io/gh/marblejs/marble-example/coverage.svg?branch=master" alt="Codecov coverage" height="18">
+<img src="https://travis-ci.com/marblejs/example.svg?branch=master" alt="Travis-CI status" height="18">
+<a href="https://codecov.io/gh/marblejs/example?branch=master">
+  <img src="https://codecov.io/gh/marblejs/example/coverage.svg?branch=master" alt="Codecov coverage" height="18">
 </a>
 </p>
 
