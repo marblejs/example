@@ -10,7 +10,7 @@
     "watch": "nodemon --watch src --ext ts --ignore '*.spec.ts' --exec yarn start",
     "lint": "tslint --config tslint.json --project tsconfig.spec.json",
     "test": "jest --expand",
-    "test:coverage": "SCOPE=unit jest --expand --coverage",
+    "test:coverage": "jest --expand --coverage",
     "test:watch": "jest --expand --onlyChanged --watch"
   },
   "private": true,

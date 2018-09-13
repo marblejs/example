@@ -16,10 +16,11 @@ git:
 install:
   - cp src/config/env.ts.dist src/config/env.ts
   - npm install -g codecov
-  - npm install
+  - npm install -g yarn
+  - yarn
 
 script:
-  - npm run test:coverage
+  - yarn test:coverage
   - codecov
 
 branches:
