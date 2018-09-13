@@ -1,12 +1,10 @@
-import { createServer } from 'http';
-import { Config } from './config';
+import { Database } from './connection/database';
+import { Server } from './connection/server';
 import { app } from './app';
 
-const SERVER_HOSTNAME = Config.server.host;
-const SERVER_PORT = Config.server.port;
+const bootstrap = async () => {
+  await Database.connect();
+  await Server.create(app);
+};
 
-createServer(app).listen(
-  SERVER_PORT,
-  SERVER_HOSTNAME,
-  () => console.log(`Server running @ http://${SERVER_HOSTNAME}:${SERVER_PORT}/`),
-);
+bootstrap();
