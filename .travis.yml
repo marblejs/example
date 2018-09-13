@@ -27,3 +27,9 @@ branches:
   only:
   - master
   - develop
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: "IErJBEa8nlOriqL96Mtz8Y5SRIEL2FGQwusYL/9BYeCIsdRO/3/0phEw7wTK30zkel5TYG7BVKQF/vqqs+Zc7B9QkojzrMPs+OlHKnIK4xOkw6XYu88G03df8UIOZOqIyOoPM3qlDETtP28uve51gDW8yVmRosC0Pw7v5RfOmBNWzknrigD7K4WvfOqnOyqpLihnSIw0w3/EdBdRgOwlSd/IPqUNLRJrpu3PfWA90lw3WpnoNfy2unRB+NPVhtwoy6bWgd9X565ovv6duuD0RObboOz9m6mAZGFyNwcZP54BunzlxxGj6RmFDGoNdXjYpKebxyFxQdbg1GXo5PfJXXn1CMZSYyXfWzoOyHEPULes7ZPE3XytiV41nYcn67OXckIP7vd2Zft9fbXuwLeHBxgR7I+WjfWwBC7xCkzBjn5svoFXXI9GeLqU2z5oEjHYQsTrf8vXvxjgwe3t8KgjjwMKxpDCqfQ/4x6aZJ0nNHM603xzXc63RXQOT2K696g/tFSjJoCLnxyMF2mNb1Ng7zospEJm7WtLS2UB0yzdVdeSFk1hpZFQLqVW+zy6F8W5kwoxOWtGXYoafcwR+ABuiYl+sJHBR5/sQktwE68v7QQGpxGj+hUqCVE8ye+g8cMTrHJNI/NMAdrCt+ot6eOOTUqZHtxwUfNf+5LYwB+a1fQ="
+  app: marblejs-example
