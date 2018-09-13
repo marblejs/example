@@ -18,6 +18,7 @@ Example project written using Marble.js framework
 ## Installation
 
 ```bash
+$ cp ./src/config/env.ts.dist ./src/config/env.ts
 $ yarn
 ````
 

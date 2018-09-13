@@ -14,6 +14,7 @@ git:
   submodules: false
 
 install:
+  - cp src/config/env.ts.dist src/config/env.ts
   - npm install -g codecov
   - npm install
 

@@ -1,20 +1,38 @@
-export enum Env {
+import { ENV } from './env';
+
+export enum NodeEnv {
   PRODUCTION = 'production',
   DEVELOPMENT = 'development',
 }
 
-export const Config = {
-  env: process.env.NODE_ENV || Env.DEVELOPMENT,
+export type LoggerLevel = 'dev' | 'prod';
+
+interface IConfig {
+  env: NodeEnv;
   server: {
-    host: process.env.HOST || '127.0.0.1',
-    port: Number(process.env.PORT) || 1337,
+    host: string;
+    port: number;
+  };
+  db: {
+    urlMain: string;
+    urlTest: string;
+  };
+  logger: {
+    level: LoggerLevel;
+  };
+}
+
+export const Config: IConfig = {
+  env: process.env.NODE_ENV as NodeEnv || ENV.NODE_ENV,
+  server: {
+    host: process.env.HOST || ENV.SERVER_HOST,
+    port: Number(process.env.PORT) || ENV.SERVER_PORT,
   },
   db: {
-    urlMain: 'mongodb://localhost:27017/marble-example',
-    urlTest: 'mongodb://localhost:27017/marble-example-test',
+    urlMain: process.env.DB_URL_MAIN || ENV.DB_URL_MAIN,
+    urlTest: process.env.DB_URL_MAIN || ENV.DB_URL_TEST,
   },
   logger: {
-    level: process.env.LOG_LEVEL || 'dev',
-    enabled: Boolean(process.env.LOG_ENABLED) || false,
+    level: process.env.LOG_LEVEL as LoggerLevel || ENV.LOG_LEVEL,
   },
 };
