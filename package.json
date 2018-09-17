@@ -6,7 +6,7 @@
   "scripts": {
     "heroku-prebuild": "cp ./src/config/env.ts.dist ./src/config/env.ts",
     "heroku-postbuild": "yarn db:seed",
-    "postinstall": "yarn build",
+    "postinstall": "yarn build && yarn test",
     "build": "tsc",
     "start": "yarn start:prod",
     "start:dev": "ts-node --project tsconfig.json src/index.ts",
@@ -48,10 +48,10 @@
   },
   "homepage": "https://github.com/marblejs/marble-example#readme",
   "dependencies": {
-    "@marblejs/core": "^1.0.0-rc.2",
-    "@marblejs/middleware-body": "^1.0.0-rc.2",
-    "@marblejs/middleware-joi": "^1.0.0-rc.2",
-    "@marblejs/middleware-logger": "^1.0.0-rc.2",
+    "@marblejs/core": "^1.0.0-rc.3",
+    "@marblejs/middleware-body": "^1.0.0-rc.3",
+    "@marblejs/middleware-joi": "^1.0.0-rc.3",
+    "@marblejs/middleware-logger": "^1.0.0-rc.3",
     "@types/chalk": "^2.2.0",
     "@types/mongoose": "^5.2.12",
     "@types/node": "^10.1.2",
