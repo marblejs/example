@@ -1,4 +1,4 @@
-import { User } from '../api/user/user.model';
+import { User, UserRole } from '../api/user/user.model';
 
 export namespace UsersSewer {
 
@@ -9,6 +9,7 @@ export namespace UsersSewer {
     lastName: 'Pitt',
     email: 'admin@admin.com',
     password: 'admin',
+    roles: [UserRole.ADMIN]
   }];
 
   export const seed = async () => {
