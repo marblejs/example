@@ -19,4 +19,10 @@ export namespace Database {
       .connect(url, { useNewUrlParser: true })
       .then(onOpen)
       .catch(onError);
+
+  export const disconnect = () =>
+    mongoose.disconnect();
+
+  export const drop = () =>
+    mongoose.connection.dropDatabase();
 }
