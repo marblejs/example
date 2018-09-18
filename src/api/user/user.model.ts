@@ -21,3 +21,8 @@ export class User extends Typegoose {
   @arrayProp({ items: String, enum: UserRole })
   roles?: UserRole[];
 }
+
+export const USER_EXCLUDED_FIELDS = {
+  password: 0,
+  __v: 0,
+};
