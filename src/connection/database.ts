@@ -4,6 +4,8 @@ import * as uuid from 'uuid';
 import { Config } from '../config';
 
 export namespace Database {
+  const { urlMain, urlTest } = Config.db;
+
   const onOpen = () => {
     console.info(chalk.green('[database] connected'));
   };
@@ -15,13 +17,13 @@ export namespace Database {
 
   export const connect = () =>
     mongoose
-      .connect(Config.db.urlMain, { useNewUrlParser: true })
+      .connect(urlMain, { useNewUrlParser: true })
       .then(onOpen)
       .catch(onError);
 
   export const connectTest = () =>
     mongoose
-      .connect(Config.db.urlTest + '/' + uuid.v4(), { useNewUrlParser: true })
+      .connect(urlTest + '/' + uuid.v4(), { useNewUrlParser: true })
 
   export const disconnect = () =>
     mongoose.disconnect();

@@ -13,8 +13,8 @@
     "start:prod": "node dist/index.js",
     "watch": "nodemon --watch src --ext ts --ignore '*.spec.ts' --exec yarn start:dev",
     "lint": "tslint --config tslint.json --project tsconfig.json",
-    "test": "jest --expand",
-    "test:coverage": "jest --expand --coverage",
+    "test": "jest --expand --forceExit",
+    "test:coverage": "jest --expand --coverage --forceExit",
     "test:watch": "jest --expand --onlyChanged --watch",
     "db:seed": "yarn ts-node src/seed/index.ts"
   },

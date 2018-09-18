@@ -3,6 +3,9 @@ module.exports = {
     '^.+\\.tsx?$': 'ts-jest'
   },
   testRegex: '.spec\.ts$',
+  testRegex: !!process.env.IS_HEROKU
+    ? '^(?!repository)\.spec\.ts$'
+    : '.spec\.ts$',
   coverageDirectory: './coverage/',
   coveragePathIgnorePatterns: [
     '.d.ts$',
