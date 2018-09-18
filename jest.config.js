@@ -11,7 +11,7 @@ module.exports = {
     'src/config',
     'connection/database',
     'connection/server',
-,  ],
+  ],
   collectCoverageFrom : ['src/**/*.ts'],
   moduleFileExtensions: [
     'ts',

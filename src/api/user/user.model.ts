@@ -26,3 +26,5 @@ export const USER_EXCLUDED_FIELDS = {
   password: 0,
   __v: 0,
 };
+
+export const UserModel = new User().getModelForClass(User);
