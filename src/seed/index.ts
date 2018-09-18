@@ -1,18 +1,15 @@
 import { Database } from '../connection/database';
-import { UsersGenerator } from './users.generator';
-import { ActorsGenerator } from './actors.generator';
-import { MoviesGenerator } from './movies.generator';
+import { usersGenerator } from './users.generator';
 
-const REGISTERED_SEWERS = [
-  UsersGenerator,
-  ActorsGenerator,
-  MoviesGenerator,
+const REGISTERED_GENERATORS = [
+  // @TODO: add movies/actors generators
+  usersGenerator,
 ];
 
 const seed = async () => {
   await Database.connect();
   await Database.drop();
-  await Promise.all(REGISTERED_SEWERS.map(creator => creator.generate()));
+  await Promise.all(REGISTERED_GENERATORS.map(generate => generate()));
   await Database.disconnect();
 };
 
