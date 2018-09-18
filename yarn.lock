@@ -16,27 +16,27 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
-"@marblejs/core@^1.0.0-rc.3":
-  version "1.0.0-rc.3"
-  resolved "https://registry.yarnpkg.com/@marblejs/core/-/core-1.0.0-rc.3.tgz#ad5798d7702f90fd7263b548c412dee7311c7ca7"
+"@marblejs/core@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@marblejs/core/-/core-1.0.0.tgz#775153eba1494a568cc401d27b59b542e9d6b102"
   dependencies:
     file-type "^8.0.0"
     mime "^2.3.1"
     path-to-regexp "^2.4.0"
 
-"@marblejs/middleware-body@^1.0.0-rc.3":
-  version "1.0.0-rc.3"
-  resolved "https://registry.yarnpkg.com/@marblejs/middleware-body/-/middleware-body-1.0.0-rc.3.tgz#1aac3615bf9e2b1e102ba0d2af6dec8295ad5ac0"
+"@marblejs/middleware-body@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@marblejs/middleware-body/-/middleware-body-1.0.0.tgz#e8e7d5bfd6b996d03fc2cca5720d6d29db769317"
 
-"@marblejs/middleware-joi@^1.0.0-rc.3":
-  version "1.0.0-rc.3"
-  resolved "https://registry.yarnpkg.com/@marblejs/middleware-joi/-/middleware-joi-1.0.0-rc.3.tgz#392391f3bed0ec53b88f5930d28287a9f3cb46d5"
+"@marblejs/middleware-joi@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@marblejs/middleware-joi/-/middleware-joi-1.0.0.tgz#49ac514d7c1e201541fb6d11da651b1227b30f37"
   dependencies:
     joi "^13.3.0"
 
-"@marblejs/middleware-logger@^1.0.0-rc.3":
-  version "1.0.0-rc.3"
-  resolved "https://registry.yarnpkg.com/@marblejs/middleware-logger/-/middleware-logger-1.0.0-rc.3.tgz#fe07be214a3d8d059542252bd3e7f045ac270371"
+"@marblejs/middleware-logger@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@marblejs/middleware-logger/-/middleware-logger-1.0.0.tgz#465ec81e6d66c9e2c8bfaafb689a52db5a86d568"
   dependencies:
     chalk "^2.4.1"
 
