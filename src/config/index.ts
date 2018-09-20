@@ -30,7 +30,7 @@ export const Config: IConfig = {
   },
   db: {
     urlMain: process.env.DB_URL_MAIN || ENV.DB_URL_MAIN,
-    urlTest: process.env.DB_URL_MAIN || ENV.DB_URL_TEST,
+    urlTest: process.env.DB_URL_TEST || ENV.DB_URL_TEST,
   },
   logger: {
     level: process.env.LOG_LEVEL as LoggerLevel || ENV.LOG_LEVEL,

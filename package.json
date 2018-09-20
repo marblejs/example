@@ -5,16 +5,18 @@
   "main": "dist/index.js",
   "scripts": {
     "heroku-prebuild": "cp ./src/config/env.ts.dist ./src/config/env.ts",
-    "postinstall": "yarn build",
+    "heroku-postbuild": "yarn db:seed",
+    "postinstall": "yarn build && yarn test",
     "build": "tsc",
     "start": "yarn start:prod",
     "start:dev": "ts-node --project tsconfig.json src/index.ts",
     "start:prod": "node dist/index.js",
-    "watch": "nodemon --watch src --ext ts --ignore '*.spec.ts' --exec yarn start",
+    "watch": "nodemon --watch src --ext ts --ignore '*.spec.ts' --exec yarn start:dev",
     "lint": "tslint --config tslint.json --project tsconfig.json",
-    "test": "jest --expand",
-    "test:coverage": "jest --expand --coverage",
-    "test:watch": "jest --expand --onlyChanged --watch"
+    "test": "jest --expand --forceExit",
+    "test:coverage": "jest --expand --coverage --forceExit",
+    "test:watch": "jest --expand --onlyChanged --watch",
+    "db:seed": "yarn ts-node src/seed/index.ts"
   },
   "private": true,
   "repository": {
@@ -46,17 +48,23 @@
   },
   "homepage": "https://github.com/marblejs/marble-example#readme",
   "dependencies": {
-    "@marblejs/core": "^1.0.0-rc.2",
-    "@marblejs/middleware-body": "^1.0.0-rc.2",
-    "@marblejs/middleware-joi": "^1.0.0-rc.2",
-    "@marblejs/middleware-logger": "^1.0.0-rc.2",
+    "@marblejs/core": "^1.0.0",
+    "@marblejs/middleware-body": "^1.0.0",
+    "@marblejs/middleware-joi": "^1.0.0",
+    "@marblejs/middleware-logger": "^1.0.0",
     "@types/chalk": "^2.2.0",
+    "@types/faker": "^4.1.4",
     "@types/mongoose": "^5.2.12",
     "@types/node": "^10.1.2",
+    "@types/uuid": "^3.4.4",
     "chalk": "^2.4.1",
+    "faker": "^4.1.0",
     "mongoose": "^5.2.14",
+    "reflect-metadata": "^0.1.12",
     "rxjs": "~6.2.2",
-    "typescript": "~3.0.1"
+    "typegoose": "^5.2.1",
+    "typescript": "~3.0.1",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "@types/jest": "^23.3.1",
