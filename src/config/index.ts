@@ -20,6 +20,9 @@ interface IConfig {
   logger: {
     level: LoggerLevel;
   };
+  jwt: {
+    secret: string,
+  },
 }
 
 export const Config: IConfig = {
@@ -34,5 +37,8 @@ export const Config: IConfig = {
   },
   logger: {
     level: process.env.LOG_LEVEL as LoggerLevel || ENV.LOG_LEVEL,
+  },
+  jwt: {
+    secret: ENV.JWT_SECRET,
   },
 };

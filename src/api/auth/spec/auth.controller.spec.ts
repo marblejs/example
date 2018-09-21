@@ -9,6 +9,13 @@ const USER_MOCK = {
 };
 
 describe('Auth controller', () => {
+  let tokenModule;
+
+  beforeEach(() => {
+    jest.unmock('../helpers/token.helper.ts');
+    tokenModule = require('../helpers/token.helper.ts');
+  });
+
   afterEach(() => {
     jest.clearAllMocks();
   });
@@ -51,11 +58,14 @@ describe('Auth controller', () => {
   });
 
   test('POST /api/v1/auth/login responds with JWT token', async () => {
+    const expectedToken = 'test_token';
+
     spyOn(UserRepository, 'findUserByCredentials').and.callFake(() => of(USER_MOCK));
+    tokenModule.generateTokenForUser = jest.fn(() => expectedToken);
 
     return request(app)
       .post('/api/v1/auth/login')
       .send({ login: 'admin', password: 'admin' })
-      .expect(200, USER_MOCK);
+      .expect(200, { token: expectedToken });
   });
 });
