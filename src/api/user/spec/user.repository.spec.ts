@@ -6,7 +6,7 @@ import { Database } from '../../../connection/database';
 describe('User repository', () => {
   beforeAll(async () => Database.connectTest());
 
-  test('#findUserByCredentials returns user if found', async (done) => {
+  test('#findByCredentials returns user if found', async (done) => {
     // given
     const user = {
       email: 'test_email',
@@ -18,7 +18,7 @@ describe('User repository', () => {
 
     // when
     await UserModel.create(user);
-    const result$ = UserRepository.findUserByCredentials(credentials);
+    const result$ = UserRepository.findByCredentials(credentials);
 
     // then
     result$.subscribe(result => {

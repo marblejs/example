@@ -12,8 +12,8 @@ describe('Auth controller', () => {
   let tokenModule;
 
   beforeEach(() => {
-    jest.unmock('../helpers/token.helper.ts');
-    tokenModule = require('../helpers/token.helper.ts');
+    jest.unmock('../../shared/middlewares/jwt');
+    tokenModule = require('../../shared/middlewares/jwt');
   });
 
   afterEach(() => {
@@ -44,7 +44,7 @@ describe('Auth controller', () => {
   );
 
   test('POST /api/v1/auth/login returns 403 if credentials are incorrect ', async () => {
-    spyOn(UserRepository, 'findUserByCredentials').and.callFake(() => of(null));
+    spyOn(UserRepository, 'findByCredentials').and.callFake(() => of(null));
 
     return request(app)
       .post('/api/v1/auth/login')
@@ -60,7 +60,7 @@ describe('Auth controller', () => {
   test('POST /api/v1/auth/login responds with JWT token', async () => {
     const expectedToken = 'test_token';
 
-    spyOn(UserRepository, 'findUserByCredentials').and.callFake(() => of(USER_MOCK));
+    spyOn(UserRepository, 'findByCredentials').and.callFake(() => of(USER_MOCK));
     tokenModule.generateTokenForUser = jest.fn(() => expectedToken);
 
     return request(app)
