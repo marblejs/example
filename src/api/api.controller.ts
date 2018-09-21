@@ -2,6 +2,7 @@ import { EffectFactory, HttpError, HttpStatus, combineRoutes } from '@marblejs/c
 import { throwError } from 'rxjs';
 import { mapTo, switchMap } from 'rxjs/operators';
 import { auth$ } from './auth/auth.controller';
+import { user$ } from './user/user.controller';
 
 const root$ = EffectFactory
   .matchPath('/')
@@ -21,5 +22,5 @@ const notFound$ = EffectFactory
 
 export const api$ = combineRoutes(
   '/api/v1',
-  [ root$, auth$, notFound$ ],
+  [ root$, auth$, user$, notFound$ ],
 );

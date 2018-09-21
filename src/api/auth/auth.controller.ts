@@ -4,6 +4,7 @@ import { map, mergeMap, catchError } from 'rxjs/operators';
 import { loginValidator$ } from './auth.validator';
 import { UserRepository } from '../user/user.repository';
 import { neverNullable } from '../../util';
+import { generateTokenForUser } from '../shared/middlewares/jwt';
 
 const login$ = EffectFactory
   .matchPath('/login')
@@ -12,9 +13,10 @@ const login$ = EffectFactory
     use(loginValidator$),
     mergeMap(req => of(req).pipe(
       map(req => req.body),
-      mergeMap(UserRepository.findUserByCredentials),
+      mergeMap(UserRepository.findByCredentials),
       mergeMap(neverNullable),
-      map(user => ({ body: user })),
+      map(generateTokenForUser),
+      map(token => ({ body: { token } })),
       catchError(() => throwError(
         new HttpError('Unauthorized', HttpStatus.UNAUTHORIZED)
       )),
