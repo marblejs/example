@@ -1,7 +1,7 @@
 import { combineRoutes } from '@marblejs/core';
 import { auth$ } from './auth';
-import { notFound$ } from './common/effects/not-found.effect';
-import { root$ } from './common/effects/root.effect';
+import { notFound$ } from './root/effects/not-found.effect';
+import { root$ } from './root/effects/root.effect';
 
 export const api$ = combineRoutes(
   '/api/v1',

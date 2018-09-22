@@ -23,7 +23,7 @@ export namespace Database {
 
   export const connectTest = () =>
     mongoose
-      .connect(urlTest + '/' + uuid.v4(), { useNewUrlParser: true })
+      .connect(urlTest + '/' + uuid.v4(), { useNewUrlParser: true });
 
   export const disconnect = () =>
     mongoose.disconnect();
