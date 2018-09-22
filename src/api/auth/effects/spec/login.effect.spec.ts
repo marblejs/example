@@ -1,6 +1,6 @@
 import * as request from 'supertest';
-import { app } from '../../../app';
-import { UserRepository } from '../../user/user.repository';
+import { app } from '../../../../app';
+import { UserRepository } from '../../../user/repositories/user.repository';
 import { of } from 'rxjs';
 
 const USER_MOCK = {
@@ -8,7 +8,7 @@ const USER_MOCK = {
   lastName: 'test_lastName',
 };
 
-describe('Auth controller', () => {
+describe('Login effect', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
