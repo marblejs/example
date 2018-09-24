@@ -9,6 +9,13 @@ const USER_MOCK = {
 };
 
 describe('Login effect', () => {
+  let jwtMiddleware;
+
+  beforeEach(() => {
+    jest.unmock('@marblejs/middleware-jwt');
+    jwtMiddleware = require('@marblejs/middleware-jwt');
+  });
+
   afterEach(() => {
     jest.clearAllMocks();
   });
@@ -50,12 +57,15 @@ describe('Login effect', () => {
       });
   });
 
-  xtest('POST /api/v1/auth/login responds with JWT token', async () => {
+  test('POST /api/v1/auth/login responds with JWT token', async () => {
+    const expectedToken = 'TEST_TOKEN';
+
     spyOn(UserRepository, 'findByCredentials').and.callFake(() => of(USER_MOCK));
+    jwtMiddleware.generateToken = jest.fn(() => () => expectedToken);
 
     return request(app)
       .post('/api/v1/auth/login')
       .send({ login: 'admin', password: 'admin' })
-      .expect(200);
+      .expect(200, { token: expectedToken });
   });
 });

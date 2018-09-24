@@ -16,27 +16,34 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
-"@marblejs/core@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@marblejs/core/-/core-1.0.0.tgz#775153eba1494a568cc401d27b59b542e9d6b102"
+"@marblejs/core@next":
+  version "1.1.0-dev.8"
+  resolved "https://registry.yarnpkg.com/@marblejs/core/-/core-1.1.0-dev.8.tgz#2e330ed369065f33c04fe5ce66135a8a8b012426"
   dependencies:
     file-type "^8.0.0"
     mime "^2.3.1"
     path-to-regexp "^2.4.0"
 
-"@marblejs/middleware-body@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@marblejs/middleware-body/-/middleware-body-1.0.0.tgz#e8e7d5bfd6b996d03fc2cca5720d6d29db769317"
+"@marblejs/middleware-body@next":
+  version "1.1.0-dev.8"
+  resolved "https://registry.yarnpkg.com/@marblejs/middleware-body/-/middleware-body-1.1.0-dev.8.tgz#2085310c7917b6fda9f8000abcf856111ba48bc6"
 
-"@marblejs/middleware-joi@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@marblejs/middleware-joi/-/middleware-joi-1.0.0.tgz#49ac514d7c1e201541fb6d11da651b1227b30f37"
+"@marblejs/middleware-joi@next":
+  version "1.1.0-dev.8"
+  resolved "https://registry.yarnpkg.com/@marblejs/middleware-joi/-/middleware-joi-1.1.0-dev.8.tgz#100bcadcea479a877042c4eb2ec33844848b537e"
   dependencies:
     joi "^13.3.0"
 
-"@marblejs/middleware-logger@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@marblejs/middleware-logger/-/middleware-logger-1.0.0.tgz#465ec81e6d66c9e2c8bfaafb689a52db5a86d568"
+"@marblejs/middleware-jwt@next":
+  version "1.1.0-dev.8"
+  resolved "https://registry.yarnpkg.com/@marblejs/middleware-jwt/-/middleware-jwt-1.1.0-dev.8.tgz#d285b9249a6557a410294a0121b2cb8c6835be11"
+  dependencies:
+    "@types/jsonwebtoken" "^7.2.8"
+    jsonwebtoken "^8.3.0"
+
+"@marblejs/middleware-logger@next":
+  version "1.1.0-dev.8"
+  resolved "https://registry.yarnpkg.com/@marblejs/middleware-logger/-/middleware-logger-1.1.0-dev.8.tgz#1685bc76f568bc9ed8fbc742c72abade4877b6a6"
   dependencies:
     chalk "^2.4.1"
 
