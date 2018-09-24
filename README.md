@@ -15,14 +15,10 @@
 Example project written using Marble.js framework
 </p>
 
-## Requirements
-In order to run tests locally, please install `docker` which containerizes the testing mongodb database.
-
 ## Installation
 
 ```bash
 $ cp ./src/config/env.ts.dist ./src/config/env.ts
-$ yarn docker
 $ yarn
 ````
 
@@ -36,7 +32,6 @@ $ yarn lint            ## lint TypeScript files
 $ yarn test            ## run tests
 $ yarn test:watch      ## run tests in watch mode
 $ yarn test:coverage   ## run tests with code coverage summary
-$ yarn docker          ## start mongodb container
 ```
 
 ## License
