@@ -7,7 +7,7 @@ import { neverNullable } from '../../../util';
 
 const jwtConfig: VerifyOptions = ({ secret: Config.jwt.secret });
 
-const verifyPayload$ = (payload: Payload) =>
+export const verifyPayload$ = (payload: Payload) =>
   UserRepository
     .findById(payload._id)
     .pipe(flatMap(neverNullable));

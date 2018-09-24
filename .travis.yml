@@ -21,7 +21,7 @@ install:
 - npm install -g yarn
 - yarn
 script:
-- yarn test:coverage
+- yarn test
 - codecov
 branches:
   only:

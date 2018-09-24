@@ -22,7 +22,7 @@ interface IConfig {
   };
   jwt: {
     secret: string,
-  },
+  };
 }
 
 export const Config: IConfig = {
