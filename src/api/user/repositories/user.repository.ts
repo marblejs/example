@@ -1,9 +1,9 @@
 import { from } from 'rxjs';
-import { UserModel, USER_EXCLUDED_FIELDS } from './user.model';
-import { AuthCredentials } from '../auth/auth.model';
+import { UserModel, USER_EXCLUDED_FIELDS } from '../models/user.model';
+import { LoginCredentials } from '../../auth/models/login.model';
 
 export namespace UserRepository {
-  export const findByCredentials = (credentials: AuthCredentials) => from(
+  export const findByCredentials = (credentials: LoginCredentials) => from(
     UserModel.findOne({ email: credentials.login, password: credentials.password })
       .select(USER_EXCLUDED_FIELDS)
       .exec()

@@ -1,6 +1,6 @@
-import { UserRepository } from '../user.repository';
-import { AuthCredentials } from '../../auth/auth.model';
-import { UserModel } from '../user.model';
+import { UserRepository } from './user.repository';
+import { LoginCredentials } from '../../auth/models/login.model';
+import { UserModel } from '../models/user.model';
 import { Database } from '../../../connection/database';
 
 describe('User repository', () => {
@@ -14,7 +14,7 @@ describe('User repository', () => {
       firstName: 'test_firstName',
       lastName: 'test_lastName',
     };
-    const credentials: AuthCredentials = { login: 'test_email', password: 'test_password' };
+    const credentials: LoginCredentials = { login: 'test_email', password: 'test_password' };
 
     // when
     await UserModel.create(user);
