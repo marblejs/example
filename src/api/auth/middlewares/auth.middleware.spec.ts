@@ -1,7 +1,7 @@
 import { of, throwError } from 'rxjs';
 import { verifyPayload$ } from './auth.middleware';
 import { Payload } from '../helpers/token.helper';
-import { UserRepository } from '../../user';
+import { UserRepository } from '../../user/repositories/user.repository';
 
 describe('Auth middleware', () => {
   test('#verifyPayload$ checks if user exists in DB', done => {

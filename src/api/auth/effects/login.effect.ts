@@ -4,7 +4,7 @@ import { of, throwError } from 'rxjs';
 import { mergeMap, map, catchError } from 'rxjs/operators';
 import { generateTokenPayload } from '../helpers/token.helper';
 import { loginValidator$ } from '../validators/login.validator';
-import { UserRepository } from '../../user';
+import { UserRepository } from '../../user/repositories/user.repository';
 import { neverNullable } from '../../../util';
 import { Config } from '../../../config';
 

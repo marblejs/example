@@ -1,6 +1,6 @@
 import { from } from 'rxjs';
-import { UserModel, USER_EXCLUDED_FIELDS } from '../models';
-import { LoginCredentials } from '../../auth';
+import { UserModel, USER_EXCLUDED_FIELDS } from '../models/user.model';
+import { LoginCredentials } from '../../auth/models/login.model';
 
 export namespace UserRepository {
   export const findByCredentials = (credentials: LoginCredentials) => from(
