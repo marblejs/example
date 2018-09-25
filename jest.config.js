@@ -2,9 +2,7 @@ module.exports = {
   transform: {
     '^.+\\.tsx?$': 'ts-jest'
   },
-  testMatch: !!process.env.IS_HEROKU
-    ? ['**/*.spec.ts', '!**/*.repository.spec.ts']
-    : ['**/*.spec.ts'],
+  testMatch: ['**/*.spec.ts'],
   coverageDirectory: './coverage/',
   coveragePathIgnorePatterns: [
     '.d.ts$',
