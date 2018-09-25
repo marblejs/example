@@ -1,7 +1,7 @@
-import * as request from 'supertest';
-import { app } from '../../../../app';
-import { UserRepository } from '../../../user/repositories/user.repository';
 import { of } from 'rxjs';
+import * as request from 'supertest';
+import { app } from '../../../app';
+import { UserRepository } from '../../user/repositories/user.repository';
 
 const USER_MOCK = {
   firstName: 'test_firstName',
@@ -9,6 +9,13 @@ const USER_MOCK = {
 };
 
 describe('Login effect', () => {
+  let jwtMiddleware;
+
+  beforeEach(() => {
+    jest.unmock('@marblejs/middleware-jwt');
+    jwtMiddleware = require('@marblejs/middleware-jwt');
+  });
+
   afterEach(() => {
     jest.clearAllMocks();
   });
@@ -37,7 +44,7 @@ describe('Login effect', () => {
   );
 
   test('POST /api/v1/auth/login returns 403 if credentials are incorrect ', async () => {
-    spyOn(UserRepository, 'findUserByCredentials').and.callFake(() => of(null));
+    spyOn(UserRepository, 'findByCredentials').and.callFake(() => of(null));
 
     return request(app)
       .post('/api/v1/auth/login')
@@ -51,11 +58,14 @@ describe('Login effect', () => {
   });
 
   test('POST /api/v1/auth/login responds with JWT token', async () => {
-    spyOn(UserRepository, 'findUserByCredentials').and.callFake(() => of(USER_MOCK));
+    const expectedToken = 'TEST_TOKEN';
+
+    spyOn(UserRepository, 'findByCredentials').and.callFake(() => of(USER_MOCK));
+    jwtMiddleware.generateToken = jest.fn(() => () => expectedToken);
 
     return request(app)
       .post('/api/v1/auth/login')
       .send({ login: 'admin', password: 'admin' })
-      .expect(200, USER_MOCK);
+      .expect(200, { token: expectedToken });
   });
 });

@@ -1,6 +1,6 @@
 import { EffectFactory, HttpError, HttpStatus } from '@marblejs/core';
-import { switchMap } from 'rxjs/operators';
 import { throwError } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 export const notFound$ = EffectFactory
   .matchPath('*')

@@ -15,6 +15,9 @@
 Example project written using Marble.js framework
 </p>
 
+## Requirements
+In order to run tests locally, please install `docker` which containerizes the testing mongodb database.
+
 ## Installation
 
 ```bash
@@ -29,9 +32,9 @@ $ yarn start           ## run server
 $ yarn watch           ## run server in watch mode (development)
 $ yarn build           ## build the app
 $ yarn lint            ## lint TypeScript files
-$ yarn test            ## run tests
+$ yarn test            ## run tests with coverage report
 $ yarn test:watch      ## run tests in watch mode
-$ yarn test:coverage   ## run tests with code coverage summary
+$ yarn docker          ## start mongodb container
 ```
 
 ## License

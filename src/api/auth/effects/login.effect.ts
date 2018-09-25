@@ -1,9 +1,12 @@
 import { EffectFactory, use, HttpError, HttpStatus } from '@marblejs/core';
-import { loginValidator$ } from '../validators/login.validator';
-import { mergeMap, map, catchError } from 'rxjs/operators';
+import { generateToken } from '@marblejs/middleware-jwt';
 import { of, throwError } from 'rxjs';
-import { UserRepository } from '../../user/repositories/user.repository';
+import { mergeMap, map, catchError } from 'rxjs/operators';
+import { generateTokenPayload } from '../helpers/token.helper';
+import { loginValidator$ } from '../validators/login.validator';
+import { UserRepository } from '../../user';
 import { neverNullable } from '../../../util';
+import { Config } from '../../../config';
 
 export const login$ = EffectFactory
   .matchPath('/login')
@@ -12,9 +15,11 @@ export const login$ = EffectFactory
     use(loginValidator$),
     mergeMap(req => of(req).pipe(
       map(req => req.body),
-      mergeMap(UserRepository.findUserByCredentials),
+      mergeMap(UserRepository.findByCredentials),
       mergeMap(neverNullable),
-      map(user => ({ body: user })),
+      map(generateTokenPayload),
+      map(generateToken({ secret: Config.jwt.secret })),
+      map(token => ({ body: { token } })),
       catchError(() => throwError(
         new HttpError('Unauthorized', HttpStatus.UNAUTHORIZED)
       )),
