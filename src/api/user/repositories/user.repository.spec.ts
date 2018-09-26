@@ -1,6 +1,5 @@
 import { UserRepository } from './user.repository';
 import { LoginCredentials } from '../../auth/models/login.model';
-import { UserModel } from '../models/user.model';
 import { Database } from '../../../connection/database';
 
 describe('User repository', () => {
@@ -17,7 +16,7 @@ describe('User repository', () => {
     const credentials: LoginCredentials = { login: 'test_email', password: 'test_password' };
 
     // when
-    await UserModel.create(user);
+    await UserRepository.model.create(user);
     const result$ = UserRepository.findByCredentials(credentials);
 
     // then
@@ -40,7 +39,7 @@ describe('User repository', () => {
     };
 
     // when
-    const { id } = await UserModel.create(user);
+    const { id } = await UserRepository.model.create(user);
     const result$ = UserRepository.findById(id);
 
     // then
@@ -63,8 +62,8 @@ describe('User repository', () => {
     };
 
     // when
-    await UserModel.create(user);
-    await UserModel.create(user);
+    await UserRepository.model.create(user);
+    await UserRepository.model.create(user);
     const result$ = UserRepository.findAll();
 
     // then
