@@ -1,7 +1,7 @@
 import { of } from 'rxjs';
 import * as request from 'supertest';
 import { app } from '../../../app';
-import { UserRepository } from '../../user/repositories/user.repository';
+import { UserDao } from '../../user/model/user.dao';
 import { Database } from '../../../connection/database';
 import { authorizeMock } from '../../../util/test.util';
 
@@ -26,7 +26,7 @@ describe('Get users effect', () => {
   test('GET /api/v1/user/ returns 200 status and list of users', async () => {
     const allUsers = [USER_MOCK, USER_MOCK];
 
-    spyOn(UserRepository, 'findAll').and.callFake(() => of(allUsers));
+    spyOn(UserDao, 'findAll').and.callFake(() => of(allUsers));
 
     return request(app)
       .get('/api/v1/user')

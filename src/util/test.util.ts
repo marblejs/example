@@ -1,5 +1,5 @@
 import * as request from 'supertest';
-import { UserModel } from '../api/user/models/user.model';
+import { UserModel } from '../api/user/model/user.model';
 
 export const authorizeMock = async ({ app, user }) => {
   await UserModel.create(user);
