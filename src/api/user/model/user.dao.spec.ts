@@ -1,10 +1,7 @@
 import { UserDao } from './user.dao';
 import { LoginCredentials } from '../../auth/model/login.model';
-import { Database } from '../../../connection/database';
 
 describe('User DAO', () => {
-  beforeAll(async () => Database.connectTest());
-
   test('#findByCredentials finds user by credentials', async (done) => {
     // given
     const user = {
@@ -72,7 +69,4 @@ describe('User DAO', () => {
       done();
     });
   });
-
-  afterEach(async () => Database.drop());
-  afterAll(async () => Database.disconnect());
 });
