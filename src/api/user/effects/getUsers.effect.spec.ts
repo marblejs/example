@@ -1,27 +1,22 @@
-import { of } from 'rxjs';
 import * as request from 'supertest';
+import { of } from 'rxjs';
 import { app } from '../../../app';
 import { UserDao } from '../../user/model/user.dao';
-import { authorizeMock } from '../../../tests/auth.mock';
+import { mockUser } from '../../../tests/user.mock';
+import { mockAuthorizationFor } from '../../../tests/auth.mock';
 
-const USER_MOCK = {
-  email: 'test_email',
-  password: 'test_password',
-  firstName: 'test_firstName',
-  lastName: 'test_lastName',
-};
-
-describe('Get users effect', () => {
+describe('getUsersEffect$', () => {
   test('GET /api/v1/user/ returns 200 status and list of users', async () => {
-    const allUsers = [USER_MOCK, USER_MOCK];
-    const token = await authorizeMock({ user: USER_MOCK })(app);
+    const user = await mockUser();
+    const token = await mockAuthorizationFor(user)(app);
+    const expectedList = ['user1', 'user2'];
 
-    spyOn(UserDao, 'findAll').and.callFake(() => of(allUsers));
+    spyOn(UserDao, 'findAll').and.callFake(() => of(expectedList));
 
     return request(app)
       .get('/api/v1/user')
       .set('Authorization', `Bearer ${token}`)
-      .expect(200, allUsers);
+      .expect(200, expectedList);
   });
 
 

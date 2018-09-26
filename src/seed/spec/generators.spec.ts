@@ -1,4 +1,3 @@
-import { Typegoose } from 'typegoose';
 import { generateCollectionFromModel } from '../generator';
 
 const saveMock = jest.fn(() => Promise.resolve());
