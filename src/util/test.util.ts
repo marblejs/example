@@ -1,8 +1,8 @@
 import * as request from 'supertest';
-import { UserModel } from '../api/user/models/user.model';
+import { UserRepository } from '../api/user/repositories/user.repository';
 
 export const authorizeMock = async ({ app, user }) => {
-  await UserModel.create(user);
+  await UserRepository.model.create(user);
 
   const { email: login, password } = user;
   const { token } = await request(app)
