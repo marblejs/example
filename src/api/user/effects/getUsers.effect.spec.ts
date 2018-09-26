@@ -2,8 +2,7 @@ import { of } from 'rxjs';
 import * as request from 'supertest';
 import { app } from '../../../app';
 import { UserDao } from '../../user/model/user.dao';
-import { Database } from '../../../connection/database';
-import { authorizeMock } from '../../../util/test.util';
+import { authorizeMock } from '../../../tests/auth.mock';
 
 const USER_MOCK = {
   email: 'test_email',
@@ -13,18 +12,9 @@ const USER_MOCK = {
 };
 
 describe('Get users effect', () => {
-  let token: string;
-
-  beforeAll(async () => {
-    await Database.connectTest();
-  });
-
-  beforeEach(async () => {
-    token = await authorizeMock({ app, user: USER_MOCK });
-  });
-
   test('GET /api/v1/user/ returns 200 status and list of users', async () => {
     const allUsers = [USER_MOCK, USER_MOCK];
+    const token = await authorizeMock({ user: USER_MOCK })(app);
 
     spyOn(UserDao, 'findAll').and.callFake(() => of(allUsers));
 
@@ -40,12 +30,4 @@ describe('Get users effect', () => {
       .get('/api/v1/user')
       .expect(401, { error: { status: 401, message: 'Unauthorized' } })
   );
-
-  afterEach(async () => {
-    await Database.drop();
-  });
-
-  afterAll(async () => {
-    await Database.disconnect();
-  });
 });
