@@ -6,7 +6,7 @@
   "scripts": {
     "heroku-prebuild": "cp ./src/config/env.ts.dist ./src/config/env.ts",
     "heroku-postbuild": "yarn db:seed",
-    "postinstall": "if-env IS_HEROKU=true && yarn build || (yarn build && yarn test)",
+    "postinstall": "if-env IS_HEROKU=true && yarn build || (yarn build && yarn docker && yarn test)",
     "build": "tsc",
     "start": "yarn start:prod",
     "start:dev": "ts-node --project tsconfig.json src/index.ts",
@@ -14,7 +14,7 @@
     "watch": "nodemon --watch src --ext ts --ignore '*.spec.ts' --exec yarn start:dev",
     "lint": "tslint --config tslint.json --project tsconfig.json",
     "pretest": "yarn lint",
-    "test": "jest --expand --forceExit --coverage",
+    "test": "if-env TRAVIS=true && jest --expand --forceExit --coverage || jest --expand --coverage",
     "test:watch": "jest --expand --onlyChanged --watch",
     "docker": "docker-compose -f .docker/docker-compose.yml up --build -d",
     "db:seed": "yarn ts-node src/seed/index.ts"

@@ -1,22 +1,24 @@
 import { from } from 'rxjs';
-import { UserModel, USER_EXCLUDED_FIELDS } from '../model/user.model';
+import { User, USER_EXCLUDED_FIELDS } from './user.model';
 import { LoginCredentials } from '../../auth/model/login.model';
 
 export namespace UserDao {
+  export const model = new User().getModelForClass(User);
+
   export const findByCredentials = (credentials: LoginCredentials) => from(
-    UserModel.findOne({ email: credentials.login, password: credentials.password })
+    model.findOne({ email: credentials.login, password: credentials.password })
       .select(USER_EXCLUDED_FIELDS)
       .exec()
   );
 
   export const findById = (id: string ) => from(
-    UserModel.findById(id)
+    model.findById(id)
       .select(USER_EXCLUDED_FIELDS)
       .exec()
   );
 
   export const findAll = () => from(
-    UserModel.find()
+    model.find()
       .select(USER_EXCLUDED_FIELDS)
       .exec()
   );

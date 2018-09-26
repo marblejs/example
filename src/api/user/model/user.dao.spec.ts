@@ -1,6 +1,5 @@
 import { UserDao } from './user.dao';
 import { LoginCredentials } from '../../auth/model/login.model';
-import { UserModel } from '../model/user.model';
 import { Database } from '../../../connection/database';
 
 describe('User DAO', () => {
@@ -17,7 +16,7 @@ describe('User DAO', () => {
     const credentials: LoginCredentials = { login: 'test_email', password: 'test_password' };
 
     // when
-    await UserModel.create(user);
+    await UserDao.model.create(user);
     const result$ = UserDao.findByCredentials(credentials);
 
     // then
@@ -40,7 +39,7 @@ describe('User DAO', () => {
     };
 
     // when
-    const { id } = await UserModel.create(user);
+    const { id } = await UserDao.model.create(user);
     const result$ = UserDao.findById(id);
 
     // then
@@ -63,8 +62,8 @@ describe('User DAO', () => {
     };
 
     // when
-    await UserModel.create(user);
-    await UserModel.create(user);
+    await UserDao.model.create(user);
+    await UserDao.model.create(user);
     const result$ = UserDao.findAll();
 
     // then
