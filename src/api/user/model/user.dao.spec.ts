@@ -1,8 +1,8 @@
-import { UserRepository } from './user.repository';
-import { LoginCredentials } from '../../auth/models/login.model';
+import { UserDao } from './user.dao';
+import { LoginCredentials } from '../../auth/model/login.model';
 import { Database } from '../../../connection/database';
 
-describe('User repository', () => {
+describe('User DAO', () => {
   beforeAll(async () => Database.connectTest());
 
   test('#findByCredentials finds user by credentials', async (done) => {
@@ -16,8 +16,8 @@ describe('User repository', () => {
     const credentials: LoginCredentials = { login: 'test_email', password: 'test_password' };
 
     // when
-    await UserRepository.model.create(user);
-    const result$ = UserRepository.findByCredentials(credentials);
+    await UserDao.model.create(user);
+    const result$ = UserDao.findByCredentials(credentials);
 
     // then
     result$.subscribe(result => {
@@ -39,8 +39,8 @@ describe('User repository', () => {
     };
 
     // when
-    const { id } = await UserRepository.model.create(user);
-    const result$ = UserRepository.findById(id);
+    const { id } = await UserDao.model.create(user);
+    const result$ = UserDao.findById(id);
 
     // then
     result$.subscribe(result => {
@@ -62,9 +62,9 @@ describe('User repository', () => {
     };
 
     // when
-    await UserRepository.model.create(user);
-    await UserRepository.model.create(user);
-    const result$ = UserRepository.findAll();
+    await UserDao.model.create(user);
+    await UserDao.model.create(user);
+    const result$ = UserDao.findAll();
 
     // then
     result$.subscribe(result => {

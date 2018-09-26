@@ -1,11 +1,9 @@
-import { EffectFactory } from '@marblejs/core';
+import { Effect } from '@marblejs/core';
 import { map, flatMap } from 'rxjs/operators';
-import { UserRepository } from '../repositories/user.repository';
+import { UserDao } from '../model/user.dao';
 
-export const getUsers$ = EffectFactory
-  .matchPath('/')
-  .matchType('GET')
-  .use(req$ => req$.pipe(
-    flatMap(UserRepository.findAll),
+export const getUsersEffect$: Effect = req$ =>
+  req$.pipe(
+    flatMap(UserDao.findAll),
     map(body => ({ body })),
-  ));
+  );

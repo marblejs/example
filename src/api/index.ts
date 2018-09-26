@@ -1,24 +1,18 @@
-import { combineRoutes, EffectFactory, HttpError, HttpStatus } from '@marblejs/core';
-import { throwError } from 'rxjs';
-import { mapTo, switchMap } from 'rxjs/operators';
+import { combineRoutes, EffectFactory } from '@marblejs/core';
+import { versionEffect$ } from './common/effects/version.effect';
+import { notFoundEffect$ } from './common/effects/notFound.effect';
 import { auth$ } from './auth';
 import { user$ } from './user';
 
 const root$ = EffectFactory
   .matchPath('/')
   .matchType('GET')
-  .use(req$ => req$.pipe(
-    mapTo({ body: `API version: v1` }),
-  ));
+  .use(versionEffect$);
 
 const notFound$ = EffectFactory
   .matchPath('*')
   .matchType('*')
-  .use(req$ => req$.pipe(
-    switchMap(() =>
-      throwError(new HttpError('Route not found', HttpStatus.NOT_FOUND))
-    )
-  ));
+  .use(notFoundEffect$);
 
 export const api$ = combineRoutes(
   '/api/v1',

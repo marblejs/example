@@ -1,9 +1,8 @@
 import { from } from 'rxjs';
-import { User, USER_EXCLUDED_FIELDS } from '../models/user.model';
-import { LoginCredentials } from '../../auth/models/login.model';
+import { User, USER_EXCLUDED_FIELDS } from './user.model';
+import { LoginCredentials } from '../../auth/model/login.model';
 
-export namespace UserRepository {
-
+export namespace UserDao {
   export const model = new User().getModelForClass(User);
 
   export const findByCredentials = (credentials: LoginCredentials) => from(
