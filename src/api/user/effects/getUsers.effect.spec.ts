@@ -1,22 +1,28 @@
 import * as request from 'supertest';
-import { of } from 'rxjs';
 import { app } from '../../../app';
-import { UserDao } from '../../user/model/user.dao';
 import { mockUser } from '../../../tests/user.mock';
 import { mockAuthorizationFor } from '../../../tests/auth.mock';
 
 describe('getUsersEffect$', () => {
   test('GET /api/v1/user/ returns 200 status and list of users', async () => {
-    const user = await mockUser();
-    const token = await mockAuthorizationFor(user)(app);
-    const expectedList = ['user1', 'user2'];
-
-    spyOn(UserDao, 'findAll').and.callFake(() => of(expectedList));
+    const users = [await mockUser(), await mockUser()];
+    const token = await mockAuthorizationFor(users[0])(app);
 
     return request(app)
       .get('/api/v1/user')
       .set('Authorization', `Bearer ${token}`)
-      .expect(200, expectedList);
+      .expect(200)
+      .then(({ body }) => {
+        users.forEach((user, i) => {
+          const result = body[i];
+          expect(result._id).toEqual(String(user._id));
+          expect(result.firstName).toEqual(user.firstName);
+          expect(result.lastName).toEqual(user.lastName);
+          expect(result.password).toBeUndefined();
+          expect(result.roles).toBeUndefined();
+          expect(result.email).toBeUndefined();
+        });
+      });
   });
 
 
