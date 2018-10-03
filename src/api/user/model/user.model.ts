@@ -22,7 +22,12 @@ export class User extends Typegoose {
   roles?: UserRole[];
 }
 
-export const USER_EXCLUDED_FIELDS = {
+export const USER_SECURE_FIELDS = {
   password: 0,
-  __v: 0,
+};
+
+export const USER_PUBLIC_FIELDS = {
+  ...USER_SECURE_FIELDS,
+  email: 0,
+  roles: 0,
 };
