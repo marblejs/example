@@ -1,5 +1,5 @@
 import { UserDao } from './user.dao';
-import { mockUser } from '../../../tests//user.mock';
+import { mockUser } from '../../../tests/user.mock';
 import { LoginCredentials } from '../../auth/model/login.model';
 
 describe('User DAO', () => {

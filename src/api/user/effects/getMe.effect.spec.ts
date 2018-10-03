@@ -42,6 +42,6 @@ describe('getMeEffect$', () => {
     return request(app)
       .get('/api/v1/user/me')
       .set('Authorization', `Bearer ${token}`)
-      .expect(404, { error: { status: 404, message: 'User does not exists' } });
+      .expect(404, { error: { status: 404, message: 'User does not exist' } });
   });
 });

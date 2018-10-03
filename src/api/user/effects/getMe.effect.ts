@@ -11,6 +11,6 @@ export const getMeEffect$: Effect = req$ =>
     mergeMap(neverNullable),
     map(user => ({ body: user })),
     catchError(() => throwError(
-      new HttpError('User does not exists', HttpStatus.NOT_FOUND)
+      new HttpError('User does not exist', HttpStatus.NOT_FOUND)
     ))
   );
