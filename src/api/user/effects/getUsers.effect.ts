@@ -4,6 +4,6 @@ import { UserDao } from '../model/user.dao';
 
 export const getUsersEffect$: Effect = req$ =>
   req$.pipe(
-    flatMap(UserDao.findAll),
+    flatMap(UserDao.findAllPublic),
     map(body => ({ body })),
   );
