@@ -3,6 +3,7 @@ import { versionEffect$ } from './common/effects/version.effect';
 import { notFoundEffect$ } from './common/effects/notFound.effect';
 import { auth$ } from './auth';
 import { user$ } from './user';
+import { actor$ } from './actor';
 
 const root$ = EffectFactory
   .matchPath('/')
@@ -16,5 +17,5 @@ const notFound$ = EffectFactory
 
 export const api$ = combineRoutes(
   '/api/v1',
-  [root$, auth$, user$, notFound$],
+  [root$, auth$, user$, actor$, notFound$],
 );
