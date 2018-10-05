@@ -31,7 +31,7 @@ describe('getMeEffect$', () => {
       .expect(401, { error: { status: 401, message: 'Unauthorized' } })
   );
 
-  test('GET /api/v1/user/me return 404 if user is not found', async () => {
+  test('GET /api/v1/user/me returns 404 if user is not found', async () => {
     const user = await mockUser();
     const token = await mockAuthorizationFor(user)(app);
 
