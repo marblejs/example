@@ -23,7 +23,7 @@ describe('getActor$', () => {
         expect(body.country).toEqual(targetActor.country);
         expect(body.birthday).toEqual(targetActor.birthday);
         expect(body.deathday).toEqual(targetActor.deathday);
-        expect(body.photoUrl).toEqual(targetActor.photoUrl);
+        expect(body.photoUrl).toContain(targetActor.photoUrl);
       });
   });
 

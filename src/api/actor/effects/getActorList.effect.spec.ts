@@ -23,7 +23,7 @@ describe('getActorList$', () => {
           expect(result.deathday).toEqual(actor.deathday);
           expect(result.country).toEqual(actor.country);
           expect(result.gender).toEqual(actor.gender);
-          expect(result.photoUrl).toEqual(actor.photoUrl);
+          expect(result.photoUrl).toContain(actor.photoUrl);
         });
       });
   });
