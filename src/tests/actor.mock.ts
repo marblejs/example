@@ -9,5 +9,4 @@ export const mockActor = async () =>
     birthday: faker.date.past(),
     country: faker.address.country(),
     gender: faker.random.arrayElement([Gender.FEMALE, Gender.MALE]),
-    photoUrl: faker.random.word(),
   });

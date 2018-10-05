@@ -8,7 +8,6 @@ const actors = [
     birthday: new Date('1963-12-18'),
     country: 'USA',
     gender: Gender.MALE,
-    photoUrl: '@TODO',
   },
   {
     imdbId: 'nm0001401',
@@ -16,7 +15,6 @@ const actors = [
     birthday: new Date('1975-06-04'),
     country: 'USA',
     gender: Gender.FEMALE,
-    photoUrl: '@TODO',
   },
   {
     imdbId: 'nm0000375',
@@ -24,7 +22,6 @@ const actors = [
     birthday: new Date('1965-04-04'),
     country: 'USA',
     gender: Gender.MALE,
-    photoUrl: '@TODO',
   },
   {
     imdbId: 'nm0000569',
@@ -32,7 +29,6 @@ const actors = [
     birthday: new Date('1972-09-27'),
     country: 'USA',
     gender: Gender.FEMALE,
-    photoUrl: '@TODO',
   },
   {
     imdbId: 'nm1165110',
@@ -40,7 +36,6 @@ const actors = [
     birthday: new Date('1983-08-11'),
     country: 'Australia',
     gender: Gender.MALE,
-    photoUrl: '@TODO',
   },
   {
     imdbId: 'nm0262635',
@@ -48,7 +43,6 @@ const actors = [
     birthday: new Date('1981-06-13'),
     country: 'USA',
     gender: Gender.MALE,
-    photoUrl: '@TODO',
   },
   {
     imdbId: 'nm0749263',
@@ -56,7 +50,6 @@ const actors = [
     birthday: new Date('1967-11-22'),
     country: 'USA',
     gender: Gender.MALE,
-    photoUrl: '@TODO',
   },
   {
     imdbId: 'nm1130627',
@@ -64,7 +57,6 @@ const actors = [
     birthday: new Date('1982-04-3'),
     country: 'Canada',
     gender: Gender.FEMALE,
-    photoUrl: '@TODO',
   },
   {
     imdbId: 'nm0000168',
@@ -72,7 +64,6 @@ const actors = [
     birthday: new Date('1948-12-21'),
     country: 'USA',
     gender: Gender.MALE,
-    photoUrl: '@TODO',
   },
   {
     imdbId: 'nm0910607',
@@ -80,7 +71,6 @@ const actors = [
     birthday: new Date('1956-10-04'),
     country: 'Austria',
     gender: Gender.MALE,
-    photoUrl: '@TODO',
   },
   {
     imdbId: 'nm0004937',
@@ -88,7 +78,6 @@ const actors = [
     birthday: new Date('1967-12-13'),
     country: 'USA',
     gender: Gender.MALE,
-    photoUrl: '@TODO',
   },
   {
     imdbId: 'nm0000235',
@@ -96,7 +85,6 @@ const actors = [
     birthday: new Date('1970-04-29'),
     country: 'USA',
     gender: Gender.FEMALE,
-    photoUrl: '@TODO',
   },
 ];
 

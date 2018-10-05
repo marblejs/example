@@ -1,10 +1,21 @@
-import { prop, Typegoose } from 'typegoose';
+import { prop, Typegoose, pre } from 'typegoose';
+import { MongooseDocument } from 'mongoose';
+
+export type ActorDocument = Actor & MongooseDocument;
 
 export enum Gender {
   MALE = 'male',
   FEMALE = 'female',
 }
 
+const setPhotoUrl = (doc: ActorDocument) => {
+  doc.photoUrl = `/img/${doc.imdbId}.jpg`;
+};
+
+@pre<Actor>('save', function(next) {
+  setPhotoUrl(this);
+  next();
+})
 export class Actor extends Typegoose {
   @prop({ required: true, index: true })
   imdbId?: string;
