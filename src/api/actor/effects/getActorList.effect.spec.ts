@@ -20,11 +20,27 @@ describe('getActorList$', () => {
           expect(result.imdbId).toEqual(String(actor.imdbId));
           expect(result.name).toEqual(actor.name);
           expect(result.birthday).toEqual(actor.birthday);
-          expect(result.country).toEqual(actor.country);
           expect(result.deathday).toEqual(actor.deathday);
+          expect(result.country).toEqual(actor.country);
           expect(result.gender).toEqual(actor.gender);
           expect(result.photoUrl).toEqual(actor.photoUrl);
         });
       });
   });
+
+  test('GET /api/v1/actor returns empty array if no actors are found', async () => {
+    const user = await mockUser();
+    const token = await mockAuthorizationFor(user)(app);
+
+    return request(app)
+      .get('/api/v1/actor')
+      .set('Authorization', `Bearer ${token}`)
+      .expect(200, []);
+  });
+
+  test('GET /api/v1/actor returns 401 if not authorized', async () =>
+    request(app)
+      .get('/api/v1/actor')
+      .expect(401, { error: { status: 401, message: 'Unauthorized' } })
+  );
 });

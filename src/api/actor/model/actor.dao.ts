@@ -12,7 +12,7 @@ export namespace ActorDao {
     model.findById(id).exec()
   );
 
-  export const findByImdbID = (imdbId: string) => from(
-    model.find({ imdbId }).exec()
+  export const findOneByImdbID = (imdbId: string) => from(
+    model.findOne({ imdbId }).exec()
   );
 }

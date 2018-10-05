@@ -7,7 +7,7 @@ import { neverNullable } from '../../../util';
 export const getActorEffect$: Effect = req$ =>
   req$.pipe(
     map(req => req.params.id),
-    mergeMap(ActorDao.findByImdbID),
+    mergeMap(ActorDao.findOneByImdbID),
     mergeMap(neverNullable),
     map(actor => ({ body: actor })),
     catchError(() => throwError(
