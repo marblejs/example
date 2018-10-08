@@ -9,7 +9,7 @@ export enum Gender {
 }
 
 const setPhotoUrl = (doc: ActorDocument) => {
-  doc.photoUrl = `/img/${doc.imdbId}.jpg`;
+  doc.photoUrl = `/img/actor/${doc.imdbId}.jpg`;
 };
 
 @pre<Actor>('save', function(next) {
