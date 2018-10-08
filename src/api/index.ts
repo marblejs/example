@@ -5,6 +5,7 @@ import { getFileEffect$ } from './common/effects/getFile.effect';
 import { auth$ } from './auth';
 import { user$ } from './user';
 import { actor$ } from './actor';
+import { movie$ } from './movie';
 
 const root$ = EffectFactory
   .matchPath('/')
@@ -21,7 +22,12 @@ const notFound$ = EffectFactory
   .matchType('*')
   .use(notFoundEffect$);
 
-export const api$ = combineRoutes(
-  '/api/v1',
-  [root$, auth$, user$, actor$, getFile$, notFound$],
-);
+export const api$ = combineRoutes('/api/v1', [
+  root$,
+  auth$,
+  user$,
+  actor$,
+  movie$,
+  getFile$,
+  notFound$
+]);

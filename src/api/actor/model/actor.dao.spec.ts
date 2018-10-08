@@ -36,6 +36,8 @@ describe('Actor DAO', () => {
 
     // then
     result$.subscribe(item => {
+      if (!item) { return fail('Actor should be found'); }
+
       expect(item._id).toEqual(targetUser._id);
       expect(item.birthday).toEqual(targetUser.birthday);
       expect(item.gender).toEqual(targetUser.gender);
@@ -54,10 +56,12 @@ describe('Actor DAO', () => {
     const targetUser = actors[0];
 
     // when
-    const result$ = ActorDao.findOneByImdbID(targetUser.imdbId);
+    const result$ = ActorDao.findOneByImdbID(targetUser.imdbId!);
 
     // then
     result$.subscribe(item => {
+      if (!item) { return fail('Movie should be found'); }
+
       expect(item._id).toEqual(targetUser._id);
       expect(item.birthday).toEqual(targetUser.birthday);
       expect(item.gender).toEqual(targetUser.gender);

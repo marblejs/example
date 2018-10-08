@@ -6,17 +6,19 @@ describe('User DAO', () => {
   test('#findByCredentials finds user by credentials', async (done) => {
     // given
     const user = await mockUser();
-    const credentials: LoginCredentials = { login: user.email, password: user.password };
+    const credentials: LoginCredentials = { login: user.email!, password: user.password! };
 
     // when
     const result$ = UserDao.findByCredentials(credentials);
 
     // then
     result$.subscribe(result => {
+      if (!result) { return fail('User should be found'); }
+
       expect(result.firstName).toEqual(user.firstName);
       expect(result.lastName).toEqual(user.lastName);
       expect(result.email).toEqual(user.email);
-      expect(result.roles[0]).toEqual(user.roles[0]);
+      expect(result.roles![0]).toEqual(user.roles![0]);
       expect(result.password).toBeUndefined();
       done();
     });
@@ -31,10 +33,12 @@ describe('User DAO', () => {
 
     // then
     result$.subscribe(result => {
+      if (!result) { return fail('User should be found'); }
+
       expect(result.firstName).toEqual(user.firstName);
       expect(result.lastName).toEqual(user.lastName);
       expect(result.email).toEqual(user.email);
-      expect(result.roles[0]).toEqual(user.roles[0]);
+      expect(result.roles![0]).toEqual(user.roles![0]);
       expect(result.password).toBeUndefined();
       done();
     });
@@ -49,6 +53,8 @@ describe('User DAO', () => {
 
     // then
     result$.subscribe(result => {
+      if (!result) { return fail('User should be found'); }
+
       expect(result._id).toEqual(user._id);
       expect(result.firstName).toEqual(user.firstName);
       expect(result.lastName).toEqual(user.lastName);
@@ -74,7 +80,7 @@ describe('User DAO', () => {
         expect(item.firstName).toEqual(reference.firstName);
         expect(item.lastName).toEqual(reference.lastName);
         expect(item.email).toEqual(reference.email);
-        expect(item.roles[0]).toEqual(reference.roles[0]);
+        expect(item.roles![0]).toEqual(reference.roles![0]);
         expect(item.password).toBeUndefined();
         done();
       });

@@ -3,8 +3,7 @@ import { app } from '../../../app';
 import { mockUser } from '../../../tests/user.mock';
 import { mockAuthorizationFor } from '../../../tests//auth.mock';
 import { UserDao } from '../model/user.dao';
-import { throwError, of } from 'rxjs';
-import { User } from '../model/user.model';
+import { of } from 'rxjs';
 
 describe('getMeEffect$', () => {
   test('GET /api/v1/user/me returns 200 and currently logged user details', async () => {
