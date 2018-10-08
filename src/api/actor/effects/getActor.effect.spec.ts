@@ -27,7 +27,7 @@ describe('getActor$', () => {
       });
   });
 
-  test('GET /api/v1/actor returns empty array if no actors are found', async () => {
+  test('GET /api/v1/actor returns 404 if not found', async () => {
     const user = await mockUser();
     const token = await mockAuthorizationFor(user)(app);
 

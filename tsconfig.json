@@ -14,10 +14,10 @@
     "noUnusedLocals": true,
     "pretty": true,
     "strict": true,
-    "target": "es6",
+    "target": "es2017",
     "lib": [
       "dom",
-      "es7"
+      "es2017"
     ],
     "typeRoots": [
       "./node_modules/@types",
@@ -26,8 +26,5 @@
   "include": [
     "./node_modules/@types",
     "./src/**/*.ts"
-  ],
-  "exclude": [
-    "**/*.spec.ts"
   ]
 }
