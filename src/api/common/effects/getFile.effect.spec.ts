@@ -1,15 +1,15 @@
 import * as request from 'supertest';
-import { app } from '../../../app';
-import * as FileHelper from '@marblejs/core/dist/+internal/files';
 import { throwError } from 'rxjs';
+import * as FileHelper from '@marblejs/core/dist/+internal/files';
+import { app } from '../../../app';
 
 describe('getFileEffect$', () => {
   test('GET api/v1/assets/:dir responds with 200', async () =>
     request(app)
-      .get('/api/v1/assets/img/placeholder.jpg')
+      .get('/api/v1/assets/img/actor/placeholder.jpg')
       .expect(200));
 
-  test('GET api/v1/assets/:dir responds with 200', async () =>
+  test('GET api/v1/assets/:dir responds with 404 if file is not found', async () =>
     request(app)
       .get('/api/v1/assets/img/not_found.jpg')
       .expect(404, { error: {
@@ -17,7 +17,7 @@ describe('getFileEffect$', () => {
         message: 'Asset not found for path: /api/v1/assets/img/not_found.jpg'
       }}));
 
-  test('GET api/v1/assets/:dir responds with 200', async () => {
+  test('GET api/v1/assets/:dir responds with 500 if file reader throws an error', async () => {
     jest.spyOn(FileHelper, 'readFile')
       .mockImplementation(() => throwError(new Error()));
 

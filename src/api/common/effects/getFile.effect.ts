@@ -4,7 +4,7 @@ import { map, mergeMap, catchError } from 'rxjs/operators';
 import { Effect, HttpError, HttpStatus } from '@marblejs/core';
 import * as FileHelper from '@marblejs/core/dist/+internal/files';
 
-const STATIC_PATH = path.resolve(__dirname, '../../../assets');
+const STATIC_PATH = path.resolve(__dirname, '../../../../assets');
 
 export const getFileEffect$: Effect = req$ =>
   req$.pipe(
