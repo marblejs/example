@@ -5,7 +5,7 @@ import { ContentType } from '@marblejs/core/dist/+internal/http';
 import * as FileHelper from '@marblejs/core/dist/+internal/files';
 
 const STATIC_PATH = path.resolve(__dirname, '../../../../dist');
-const DOC_ENTRYPOINT = 'index.html';
+const DOC_ENTRYPOINT = 'docs.html';
 const headers = { 'Content-Type': ContentType.TEXT_HTML };
 
 export const getDocEffect$: Effect = req$ =>
