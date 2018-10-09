@@ -1,0 +1,28 @@
+FORMAT: 1A
+
+# Marble.js IMDB-like
+Example REST API written in [Marble.js](http://marblejs.com) framework. The API allows you to list all available movies and connected actors profiles. The aim of this project is not to simulate the IMDB API, but rather to demonstrate how developers can write REST APIs in Marble.js framework.
+
+For implementation details you can visit the following link: [@marblejs/example](https://github.com/marblejs/example)
+
+# Group API
+
+The root endpoint should prefix all resources and right now is only accessible over HTTP.
+```
+http://marblejs-example.herokuapp.com
+```
+
+## Version [/api/v1]
+
+Retrieve information about API availability
+
+### Get version [GET]
+
++ Response 200 (text/plain)
+
+        "API version: v1"
+
+<!-- include(auth/index.apib) -->
+<!-- include(user/index.apib) -->
+<!-- include(actor/index.apib) -->
+<!-- include(movie/index.apib) -->
