@@ -1,0 +1,77 @@
+# Group Actors
+
+## Actor list [/api/v1/actor]
+
+### Get all actors [GET]
+
+Retrieve all actors
+
++ Request
+
+    + Headers
+
+            Authorization: Bearer {JWT_token}
+
++ Response 200 (application/json)
+
+    + Attributes (array[Actor])
+
++ Response 401 (application/json)
+
+        {
+            "error": {
+                "status": 401,
+                "message": "Unauthorized",
+            }
+        }
+
+## Actor [/api/v1/actor/{imdbId}]
+
+### Get single actor [GET]
+
+Retrieve single actor
+
++ Request
+
+    + Headers
+
+            Authorization: Bearer {JWT_token}
+
++ Parameters
+
+    + imdbId (string) - Actor IMDB identifier
+
++ Response 200 (application/json)
+
+    + Attributes (Actor)
+
++ Response 401 (application/json)
+
+        {
+            "error": {
+                "status": 401,
+                "message": "Unauthorized",
+            }
+        }
+
++ Response 404 (application/json)
+
+        {
+            "error": {
+                "status": 404,
+                "message": "Actor does not exist",
+            }
+        }
+
+## Data Structures
+
+### Actor
++ _id: 5bbb4aa99279d03578598282 (string, required)
++ imdbId: nm0000093 (string, required),
++ name: Brad Pitt (string, required),
++ birthday: Wed Dec 18 1963 01:00:00 GMT+0100 (string, required),
++ country: USA (string, required),
++ gender: male (enum, required),
+    + male (string)
+    + female (string)
++ photoUrl: http://example.com/api/v1/assets/img/actor/nm0000093.jpg (string, required),

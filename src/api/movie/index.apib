@@ -1,0 +1,81 @@
+# Group Movies
+
+## Movie list [/api/v1/movie]
+
+### Get all movies [GET]
+
+Retrieve all movies
+
++ Request
+
+    + Headers
+
+            Authorization: Bearer {JWT_token}
+
++ Response 200 (application/json)
+
+    + Attributes (array[Movie])
+
++ Response 401 (application/json)
+
+        {
+            "error": {
+                "status": 401,
+                "message": "Unauthorized",
+            }
+        }
+
+## Movie [/api/v1/movie/{imdbId}]
+
+### Get single movie [GET]
+
+Retrieve single movie
+
++ Request
+
+    + Headers
+
+            Authorization: Bearer {JWT_token}
+
++ Parameters
+
+    + imdbId (string) - Movie IMDB identifier
+
++ Response 200 (application/json)
+
+    + Attributes (Movie)
+
++ Response 401 (application/json)
+
+        {
+            "error": {
+                "status": 401,
+                "message": "Unauthorized",
+            }
+        }
+
++ Response 404 (application/json)
+
+        {
+            "error": {
+                "status": 404,
+                "message": "Movie does not exist",
+            }
+        }
+
+## Data Structures
+
+### Movie
++ _id: 5bbb4aa99279d03578598282 (string, required)
++ imdbId: nm0000093 (string, required)
++ title: World War Z (string, required)
++ director: David Fincher (string, required)
++ year: 2013 (number, required)
++ metascore: 63 (number, required)
++ actors (array)
+    + (MovieActor)
++ posterUrl: http://example.com/api/v1/assets/img/actor/nm0000093.jpg (string, required)
+
+### MovieActor
++ imdbId: nm0000093 (string, required)
++ name: Brad Pitt (string, required)
