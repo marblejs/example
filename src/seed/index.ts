@@ -1,11 +1,12 @@
 import { Database } from '../connection/database';
 import { usersGenerator } from './users.generator';
 import { actorsGenerator } from './actors.generator';
+import { moviesGenerator } from './movies.generator';
 
 const REGISTERED_GENERATORS = [
-  // @TODO: add movies generators
   usersGenerator,
   actorsGenerator,
+  moviesGenerator,
 ];
 
 const seed = async () => {
