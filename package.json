@@ -8,7 +8,7 @@
     "heroku-postbuild": "yarn db:seed",
     "postinstall": "if-env IS_HEROKU=true && yarn build || (yarn build && yarn docker && yarn test)",
     "build": "tsc && yarn doc",
-    "start": "yarn build && yarn start:prod",
+    "start": "yarn start:prod",
     "start:dev": "ts-node --project tsconfig.json src/index.ts",
     "start:prod": "node dist/index.js",
     "watch": "nodemon --watch src --ext ts --ignore '*.spec.ts' --exec yarn start:dev",
