@@ -1,13 +1,15 @@
 import { ActorDao } from './actor.dao';
 import { mockActor } from '../../../tests/actor.mock';
+import { SortDir } from '../../common/helpers/collectionQuery.helper';
 
 describe('Actor DAO', () => {
   test('#findAll finds all actors', async (done) => {
     // given
     const actors = [await mockActor(), await mockActor()];
+    const defaultQuery = { sortBy: '_id', limit: 0, sortDir: SortDir.ASC, page: 1 };
 
     // when
-    const result$ = ActorDao.findAll();
+    const result$ = ActorDao.findAll(defaultQuery);
 
     // then
     result$.subscribe(result => {
