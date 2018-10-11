@@ -2,7 +2,7 @@ import { from } from 'rxjs';
 import { Movie } from './movie.model';
 import { applyCollectionQuery, CollectionQuery } from '../../common/helpers/collectionQuery.helper';
 
-export const SORTING_FIELDS = ['title', 'director', 'year', 'metascore'];
+export const SORTING_FIELDS = ['_id', 'title', 'director', 'year', 'metascore'];
 
 export namespace MovieDao {
   export const model = new Movie().getModelForClass(Movie);

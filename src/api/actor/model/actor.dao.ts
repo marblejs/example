@@ -2,7 +2,7 @@ import { from } from 'rxjs';
 import { Actor } from './actor.model';
 import { applyCollectionQuery, CollectionQuery } from '../../common/helpers/collectionQuery.helper';
 
-export const SORTING_FIELDS = ['name', 'country', 'gender'];
+export const SORTING_FIELDS = ['_id', 'name', 'country', 'gender'];
 
 export namespace ActorDao {
   export const model = new Actor().getModelForClass(Actor);
