@@ -1,13 +1,15 @@
 import { MovieDao } from './movie.dao';
 import { mockMovie } from '../../../tests/movie.mock';
+import { SortDir } from '../../common/helpers/collectionQuery.helper';
 
 describe('Movie DAO', () => {
   test('#findAll finds all movies', async (done) => {
     // given
     const movies = [await mockMovie(), await mockMovie()];
+    const defaultQuery = { sortBy: '_id', limit: 0, sortDir: SortDir.ASC, page: 1 };
 
     // when
-    const result$ = MovieDao.findAll();
+    const result$ = MovieDao.findAll(defaultQuery);
 
     // then
     result$.subscribe(result => {

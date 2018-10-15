@@ -17,8 +17,8 @@
     "test": "if-env TRAVIS=true && jest --expand --forceExit --coverage || jest --expand --coverage",
     "test:watch": "jest --expand --onlyChanged --watch",
     "docker": "docker-compose -f .docker/docker-compose.yml up --build -d",
-    "doc": "aglio -i src/api/index.apib -o dist/docs.html -t onlicar --theme-template triple",
-    "doc:watch": "aglio -i src/api/index.apib -o dist/docs.html -t onlicar --theme-template triple -s -p 3001",
+    "doc": "aglio -i src/api/index.apib -o dist/docs.html -t flatly --theme-template triple",
+    "doc:watch": "aglio -i src/api/index.apib -o dist/docs.html -t flatly --theme-template triple -s -p 3001",
     "db:seed": "yarn ts-node src/seed/index.ts"
   },
   "private": true,
@@ -57,6 +57,7 @@
     "@marblejs/middleware-jwt": "^1.1.0",
     "@marblejs/middleware-logger": "^1.1.0",
     "@types/faker": "^4.1.4",
+    "@types/joi": "^13.6.0",
     "@types/mongoose": "^5.2.12",
     "@types/node": "^10.1.2",
     "@types/uuid": "^3.4.4",

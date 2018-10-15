@@ -1,10 +1,38 @@
 # Group Movies
 
-## Movie list [/api/v1/movie]
+## Movie list [/api/v1/movie{?limit,page,sortBy,sortDir}]
 
 ### Get all movies [GET]
 
 Retrieve all movies
+
++ Parameters
+    + limit (number, optional) - set page limit
+
+        + Default: `0`
+
+    + page (number, optional) - set current page
+
+        + Default: `1`
+
+    + sortBy (enum, optional) - sort by given field
+
+        + Default: `_id`
+
+        + Members
+            + `_id`
+            + 'title'
+            + 'director'
+            + 'year'
+            + `metascore`
+
+    + sortDir (enum, optional) - set sorting direction (ascending/descending)
+
+        + Default: `1`
+
+        + Members
+            + `-1`
+            + `1`
 
 + Request
 
