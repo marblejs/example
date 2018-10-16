@@ -13,7 +13,9 @@ describe('Movie DAO', () => {
 
     // then
     result$.subscribe(result => {
-      result.forEach((item, i) => {
+      expect(result.total).toEqual(movies.length);
+
+      result.collection.forEach((item, i) => {
         const reference = movies[i];
         expect(item._id).toEqual(reference._id);
         expect(item.imdbId).toEqual(reference.imdbId);

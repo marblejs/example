@@ -2,9 +2,12 @@ import { HttpRequest } from '@marblejs/core';
 import { InstanceType } from 'typegoose';
 import { Actor } from '../model/actor.model';
 import { getHostname } from '../../../util';
+import { CollectionQueryResult } from '../../common/helpers/collectionQuery.helper';
 
-export const applyHostnameForCollection = (req: HttpRequest) => (actors: InstanceType<Actor>[]) =>
-  actors.map(applyHostname(req));
+export const applyHostnameForCollection = (req: HttpRequest) => (result: CollectionQueryResult<any>) => ({
+  ...result,
+  collection: result.collection.map(applyHostname(req)),
+});
 
 export const applyHostname = (req: HttpRequest) => (actor: InstanceType<Actor>): Actor  => ({
   ...actor.toJSON(),

@@ -16,7 +16,7 @@ describe('getActorList$', () => {
       .expect(200)
       .then(({ body }) => {
         actors.forEach((actor, i) => {
-          const result = body[i];
+          const result = body.collection[i];
           expect(result.imdbId).toEqual(String(actor.imdbId));
           expect(result.name).toEqual(actor.name);
           expect(result.birthday).toEqual(actor.birthday);
@@ -35,7 +35,7 @@ describe('getActorList$', () => {
     return request(app)
       .get('/api/v1/actor')
       .set('Authorization', `Bearer ${token}`)
-      .expect(200, []);
+      .expect(200, { collection: [], total: 0 });
   });
 
   test('GET /api/v1/actor returns 401 if not authorized', async () =>

@@ -4,9 +4,9 @@ import { mergeMap, map } from 'rxjs/operators';
 import { MovieDao, SORTING_FIELDS } from '../model/movie.dao';
 import { applyHostnameForCollection } from '../../movie/model/movie.helpers';
 import { collectionQueryValidator$ } from '../../common/middlewares/collectionQuery.validator';
-import { CollectionQuery } from '../../common/helpers/collectionQuery.helper';
+import { CollectionQueryOptions } from '../../common/helpers/collectionQuery.helper';
 
-type Query = CollectionQuery;
+type Query = CollectionQueryOptions;
 
 export const getMovieListEffect$: Effect = req$ =>
   req$.pipe(
