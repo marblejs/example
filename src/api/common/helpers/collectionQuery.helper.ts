@@ -1,10 +1,15 @@
 import { Document, DocumentQuery } from 'mongoose';
 
-export interface CollectionQuery extends Record<string, any> {
+export interface CollectionQueryOptions extends Record<string, any> {
   sortBy: string;
   sortDir: SortDir;
   limit: number;
   page: number;
+}
+
+export interface CollectionQueryResult<T> {
+  collection: T;
+  total: number;
 }
 
 export enum SortDir {
@@ -12,7 +17,16 @@ export enum SortDir {
   DESC = -1,
 }
 
-export const applyCollectionQuery = (query: CollectionQuery) => <T, U extends Document>(doc: DocumentQuery<T, U>) =>
-  doc.limit(query.limit)
-    .skip((query.page - 1) * query.limit)
-    .sort({ [query.sortBy]: query.sortDir });
+export const applyCollectionQuery = (queryOptions: CollectionQueryOptions) =>
+  async <T, U extends Document>(dbQuery: () => DocumentQuery<T, U>): Promise<CollectionQueryResult<T>> => {
+    const totalQuery = dbQuery().estimatedDocumentCount();
+
+    const collectionQuery = dbQuery()
+      .limit(queryOptions.limit)
+      .skip((queryOptions.page - 1) * queryOptions.limit)
+      .sort({ [queryOptions.sortBy]: queryOptions.sortDir });
+
+    const [total, collection] = [await totalQuery, await collectionQuery];
+
+    return { collection, total };
+  };

@@ -13,7 +13,9 @@ describe('Actor DAO', () => {
 
     // then
     result$.subscribe(result => {
-      result.forEach((item, i) => {
+      expect(result.total).toEqual(actors.length);
+
+      result.collection.forEach((item, i) => {
         const reference = actors[i];
         expect(item._id).toEqual(reference._id);
         expect(item.birthday).toEqual(reference.birthday);

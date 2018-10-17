@@ -4,9 +4,9 @@ import { map, mergeMap } from 'rxjs/operators';
 import { ActorDao, SORTING_FIELDS } from '../model/actor.dao';
 import { applyHostnameForCollection } from '../model/actor.helpers';
 import { collectionQueryValidator$ } from '../../common/middlewares/collectionQuery.validator';
-import { CollectionQuery } from '../../common/helpers/collectionQuery.helper';
+import { CollectionQueryOptions } from '../../common/helpers/collectionQuery.helper';
 
-type Query = CollectionQuery;
+type Query = CollectionQueryOptions;
 
 export const getActorListEffect$: Effect = req$ =>
   req$.pipe(

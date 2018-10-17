@@ -18,7 +18,7 @@ describe('getMovieList$', () => {
       .expect(200)
       .then(({ body }) => {
         movies.forEach((movie, i) => {
-          const result = body[i];
+          const result = body.collection[i];
           expect(result._id).toEqual(String(movie._id));
           expect(result.imdbId).toEqual(movie.imdbId);
           expect(result.title).toEqual(movie.title);
@@ -33,14 +33,14 @@ describe('getMovieList$', () => {
       });
   });
 
-  test('GET /api/v1/movie returns empty array if no movies are found', async () => {
+  test('GET /api/v1/movie returns empty state if no movies are found', async () => {
     const user = await mockUser();
     const token = await mockAuthorizationFor(user)(app);
 
     return request(app)
       .get('/api/v1/movie')
       .set('Authorization', `Bearer ${token}`)
-      .expect(200, []);
+      .expect(200, { collection: [], total: 0 });
   });
 
   test('GET /api/v1/movie returns 401 if not authorized', async () =>
