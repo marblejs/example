@@ -16,34 +16,35 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
-"@marblejs/core@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@marblejs/core/-/core-1.2.0.tgz#cae77d298e9ad24948c895e060164b39210bfbfe"
+"@marblejs/core@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@marblejs/core/-/core-1.2.1.tgz#7f3221899b4ffaf696a89b5654cdc056ad009af4"
   dependencies:
+    chalk "~2.4.1"
     file-type "^8.0.0"
     mime "^2.3.1"
     path-to-regexp "^2.4.0"
 
-"@marblejs/middleware-body@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@marblejs/middleware-body/-/middleware-body-1.2.0.tgz#83b4340a2ef645017e1c2f2eec775c94ec412883"
+"@marblejs/middleware-body@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@marblejs/middleware-body/-/middleware-body-1.2.1.tgz#168a4fc11c387ede2620224a4138fc1da3bf3eb6"
 
-"@marblejs/middleware-joi@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@marblejs/middleware-joi/-/middleware-joi-1.2.0.tgz#93d7bc2df6df09afd8cd0e1c8e9aa10c93192635"
+"@marblejs/middleware-joi@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@marblejs/middleware-joi/-/middleware-joi-1.2.1.tgz#17baa54d7a7fde5e5a90cdaa1ab4b50e12237344"
   dependencies:
     joi "^13.3.0"
 
-"@marblejs/middleware-jwt@1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@marblejs/middleware-jwt/-/middleware-jwt-1.2.0.tgz#d0efa0caa45616d76c20771a30f466c9e7187cce"
+"@marblejs/middleware-jwt@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@marblejs/middleware-jwt/-/middleware-jwt-1.2.1.tgz#9c0d65df07c3318ed93cc6db118547f7039d3db1"
   dependencies:
     "@types/jsonwebtoken" "^7.2.8"
     jsonwebtoken "^8.3.0"
 
-"@marblejs/middleware-logger@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@marblejs/middleware-logger/-/middleware-logger-1.2.0.tgz#e3b7e3659100ee4f833f4b534a1ae8b67d285fd1"
+"@marblejs/middleware-logger@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@marblejs/middleware-logger/-/middleware-logger-1.2.1.tgz#380043c48996efc230b39efdd9a3cf9fb04ccee4"
   dependencies:
     chalk "^2.4.1"
 
@@ -852,7 +853,7 @@ chalk@^1.0.0, chalk@^1.1.3:
     strip-ansi "^3.0.0"
     supports-color "^2.0.0"
 
-chalk@^2.0.0, chalk@^2.0.1, chalk@^2.1.0, chalk@^2.3.0, chalk@^2.3.1, chalk@^2.4.1:
+chalk@^2.0.0, chalk@^2.0.1, chalk@^2.1.0, chalk@^2.3.0, chalk@^2.3.1, chalk@^2.4.1, chalk@~2.4.1:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.4.1.tgz#18c49ab16a037b6eb0152cc83e3471338215b66e"
   dependencies:
