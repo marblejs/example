@@ -4,9 +4,14 @@ import * as FileHelper from '@marblejs/core/dist/+internal/files';
 import { app } from '../../../app';
 
 describe('getFileEffect$', () => {
-  test('GET api/v1/assets/:dir responds with 200', async () =>
+  test('GET api/v1/assets/:dir responds with 200 for actors entity', async () =>
     request(app)
       .get('/api/v1/assets/img/actors/placeholder.jpg')
+      .expect(200));
+
+  test('GET api/v1/assets/:dir responds with 200 for movies entity', async () =>
+    request(app)
+      .get('/api/v1/assets/img/movies/placeholder.jpg')
       .expect(200));
 
   test('GET api/v1/assets/:dir responds with 404 if file is not found', async () =>
