@@ -13,7 +13,7 @@ const getActor$ = EffectFactory
   .matchType('GET')
   .use(getActorEffect$);
 
-export const actor$ = combineRoutes('/actor', {
+export const actors$ = combineRoutes('/actors', {
   effects: [getActorList$, getActor$],
   middlewares: [authorize$],
 });

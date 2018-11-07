@@ -1,15 +1,15 @@
-import { ActorDao } from './actor.dao';
-import { mockActor } from '../../../tests/actor.mock';
+import { ActorsDao } from './actors.dao';
+import { mockActor } from '../../../tests/actors.mock';
 import { SortDir } from '../../common/helpers/collectionQuery.helper';
 
-describe('Actor DAO', () => {
+describe('Actors DAO', () => {
   test('#findAll finds all actors', async (done) => {
     // given
     const actors = [await mockActor(), await mockActor()];
     const defaultQuery = { sortBy: '_id', limit: 0, sortDir: SortDir.ASC, page: 1 };
 
     // when
-    const result$ = ActorDao.findAll(defaultQuery);
+    const result$ = ActorsDao.findAll(defaultQuery);
 
     // then
     result$.subscribe(result => {
@@ -36,7 +36,7 @@ describe('Actor DAO', () => {
     const targetUser = actors[0];
 
     // when
-    const result$ = ActorDao.findById(targetUser._id);
+    const result$ = ActorsDao.findById(targetUser._id);
 
     // then
     result$.subscribe(item => {
@@ -60,7 +60,7 @@ describe('Actor DAO', () => {
     const targetUser = actors[0];
 
     // when
-    const result$ = ActorDao.findOneByImdbID(targetUser.imdbId!);
+    const result$ = ActorsDao.findOneByImdbID(targetUser.imdbId!);
 
     // then
     result$.subscribe(item => {

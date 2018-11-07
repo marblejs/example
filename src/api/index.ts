@@ -5,7 +5,7 @@ import { getFileEffect$ } from './common/effects/getFile.effect';
 import { getDocEffect$ } from './common/effects/getDoc.effect';
 import { auth$ } from './auth';
 import { user$ } from './user';
-import { actor$ } from './actor';
+import { actors$ } from './actors';
 import { movie$ } from './movie';
 
 const root$ = EffectFactory
@@ -32,7 +32,7 @@ export const api$ = combineRoutes('/api/v1', [
   root$,
   auth$,
   user$,
-  actor$,
+  actors$,
   movie$,
   getFile$,
   getDoc$,

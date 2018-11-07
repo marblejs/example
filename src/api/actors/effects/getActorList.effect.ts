@@ -1,8 +1,8 @@
 import { Effect, use } from '@marblejs/core';
 import { of } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
-import { ActorDao, SORTING_FIELDS } from '../model/actor.dao';
-import { applyHostnameForCollection } from '../model/actor.helpers';
+import { ActorsDao, SORTING_FIELDS } from '../model/actors.dao';
+import { applyHostnameForCollection } from '../model/actors.helpers';
 import { collectionQueryValidator$ } from '../../common/middlewares/collectionQuery.validator';
 import { CollectionQueryOptions } from '../../common/helpers/collectionQuery.helper';
 
@@ -13,7 +13,7 @@ export const getActorListEffect$: Effect = req$ =>
     use(collectionQueryValidator$({ sortBy: SORTING_FIELDS})),
     mergeMap(req => of(req).pipe(
       map(req => req.query as Query),
-      mergeMap(ActorDao.findAll),
+      mergeMap(ActorsDao.findAll),
       map(applyHostnameForCollection(req)),
       map(actors => ({ body: actors })),
     ))

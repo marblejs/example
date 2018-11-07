@@ -1,10 +1,10 @@
 import { from } from 'rxjs';
-import { Actor } from './actor.model';
+import { Actor } from './actors.model';
 import { applyCollectionQuery, CollectionQueryOptions } from '../../common/helpers/collectionQuery.helper';
 
 export const SORTING_FIELDS = ['_id', 'name', 'country', 'gender'];
 
-export namespace ActorDao {
+export namespace ActorsDao {
   export const model = new Actor().getModelForClass(Actor);
 
   export const findAll = (query: CollectionQueryOptions) => from(

@@ -1,18 +1,18 @@
 import * as request from 'supertest';
 import { app } from '../../../app';
 import { mockAuthorizationFor } from '../../../tests/auth.mock';
-import { mockActor } from '../../../tests/actor.mock';
+import { mockActor } from '../../../tests/actors.mock';
 import { mockUser } from '../../../tests/user.mock';
 
 describe('getActor$', () => {
-  test('GET /api/v1/actor/:id returns 200 if actor is found', async () => {
+  test('GET /api/v1/actors/:id returns 200 if actor is found', async () => {
     const user = await mockUser();
     const actors = [await mockActor(), await mockActor()];
     const token = await mockAuthorizationFor(user)(app);
     const targetActor = actors[0];
 
     return request(app)
-      .get(`/api/v1/actor/${targetActor.imdbId}`)
+      .get(`/api/v1/actors/${targetActor.imdbId}`)
       .set('Authorization', `Bearer ${token}`)
       .expect(200)
       .then(({ body }) => {
@@ -27,19 +27,19 @@ describe('getActor$', () => {
       });
   });
 
-  test('GET /api/v1/actor returns 404 if not found', async () => {
+  test('GET /api/v1/actors returns 404 if not found', async () => {
     const user = await mockUser();
     const token = await mockAuthorizationFor(user)(app);
 
     return request(app)
-      .get('/api/v1/actor/not_exists')
+      .get('/api/v1/actors/not_exists')
       .set('Authorization', `Bearer ${token}`)
       .expect(404, { error: { status: 404, message: 'Actor does not exist' } });
   });
 
-  test('GET /api/v1/actor returns 401 if not authorized', async () =>
+  test('GET /api/v1/actors returns 401 if not authorized', async () =>
     request(app)
-      .get('/api/v1/actor/123')
+      .get('/api/v1/actors/123')
       .expect(401, { error: { status: 401, message: 'Unauthorized' } })
   );
 });
