@@ -1,14 +1,14 @@
 import { Effect, HttpStatus, HttpError } from '@marblejs/core';
 import { of, throwError } from 'rxjs';
 import { mergeMap, map, catchError } from 'rxjs/operators';
-import { MovieDao } from '../model/movie.dao';
+import { MoviesDao } from '../model/movies.dao';
 import { neverNullable } from '../../../util';
-import { applyHostname } from '../../movie/model/movie.helpers';
+import { applyHostname } from '../../movies/model/movies.helpers';
 
 export const getMovieEffect$: Effect = req$ =>
   req$.pipe(
     mergeMap(req => of(req.params.id).pipe(
-      mergeMap(MovieDao.findOneByImdbID),
+      mergeMap(MoviesDao.findOneByImdbID),
       mergeMap(neverNullable),
       map(applyHostname(req)),
       map(movie => ({ body: movie })),

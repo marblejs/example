@@ -1,6 +1,6 @@
 import { HttpRequest } from '@marblejs/core';
 import { InstanceType } from 'typegoose';
-import { Movie } from '../model/movie.model';
+import { Movie } from './movies.model';
 import { getHostname } from '../../../util';
 import { CollectionQueryResult } from '../../common/helpers/collectionQuery.helper';
 

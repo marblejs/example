@@ -6,7 +6,7 @@ import { getDocEffect$ } from './common/effects/getDoc.effect';
 import { auth$ } from './auth';
 import { user$ } from './user';
 import { actors$ } from './actors';
-import { movie$ } from './movie';
+import { movies$ } from './movies';
 
 const root$ = EffectFactory
   .matchPath('/')
@@ -33,7 +33,7 @@ export const api$ = combineRoutes('/api/v1', [
   auth$,
   user$,
   actors$,
-  movie$,
+  movies$,
   getFile$,
   getDoc$,
   notFound$

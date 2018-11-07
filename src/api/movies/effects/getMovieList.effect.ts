@@ -1,8 +1,8 @@
 import { Effect, use } from '@marblejs/core';
 import { of } from 'rxjs';
 import { mergeMap, map } from 'rxjs/operators';
-import { MovieDao, SORTING_FIELDS } from '../model/movie.dao';
-import { applyHostnameForCollection } from '../../movie/model/movie.helpers';
+import { MoviesDao, SORTING_FIELDS } from '../model/movies.dao';
+import { applyHostnameForCollection } from '../../movies/model/movies.helpers';
 import { collectionQueryValidator$ } from '../../common/middlewares/collectionQuery.validator';
 import { CollectionQueryOptions } from '../../common/helpers/collectionQuery.helper';
 
@@ -13,7 +13,7 @@ export const getMovieListEffect$: Effect = req$ =>
     use(collectionQueryValidator$({ sortBy: SORTING_FIELDS})),
     mergeMap(req => of(req).pipe(
       map(req => req.query as Query),
-      mergeMap(MovieDao.findAll),
+      mergeMap(MoviesDao.findAll),
       map(applyHostnameForCollection(req)),
       map(movies => ({ body: movies })),
     ))

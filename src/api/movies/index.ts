@@ -13,7 +13,7 @@ const getMovie$ = EffectFactory
   .matchType('GET')
   .use(getMovieEffect$);
 
-export const movie$ = combineRoutes('/movie', {
+export const movies$ = combineRoutes('/movies', {
   effects: [getMovieList$, getMovie$],
   middlewares: [authorize$],
 });

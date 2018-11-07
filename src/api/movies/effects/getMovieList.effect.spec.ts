@@ -2,18 +2,18 @@ import * as request from 'supertest';
 import { app } from '../../../app';
 import { mockAuthorizationFor } from '../../../tests/auth.mock';
 import { mockUser } from '../../../tests/user.mock';
-import { mockMovie } from '../../../tests/movie.mock';
+import { mockMovie } from '../../../tests/movies.mock';
 import { mockMovieActor } from '../../../tests/movieActor.mock';
 
 describe('getMovieList$', () => {
-  test('GET /api/v1/movie returns 200 and list of movies', async () => {
+  test('GET /api/v1/movies returns 200 and list of movies', async () => {
     const user = await mockUser();
     const actors = [mockMovieActor(), mockMovieActor()];
     const movies = [await mockMovie(actors), await mockMovie(actors)];
     const token = await mockAuthorizationFor(user)(app);
 
     return request(app)
-      .get(`/api/v1/movie`)
+      .get(`/api/v1/movies`)
       .set('Authorization', `Bearer ${token}`)
       .expect(200)
       .then(({ body }) => {
@@ -33,19 +33,19 @@ describe('getMovieList$', () => {
       });
   });
 
-  test('GET /api/v1/movie returns empty state if no movies are found', async () => {
+  test('GET /api/v1/movies returns empty state if no movies are found', async () => {
     const user = await mockUser();
     const token = await mockAuthorizationFor(user)(app);
 
     return request(app)
-      .get('/api/v1/movie')
+      .get('/api/v1/movies')
       .set('Authorization', `Bearer ${token}`)
       .expect(200, { collection: [], total: 0 });
   });
 
-  test('GET /api/v1/movie returns 401 if not authorized', async () =>
+  test('GET /api/v1/movies returns 401 if not authorized', async () =>
     request(app)
-      .get('/api/v1/movie')
+      .get('/api/v1/movies')
       .expect(401, { error: { status: 401, message: 'Unauthorized' } })
   );
 });

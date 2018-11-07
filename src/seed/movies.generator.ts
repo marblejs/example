@@ -1,5 +1,5 @@
 import { generateCollectionFromModel } from './generator';
-import { Movie, MovieGenre } from '../api/movie/model/movie.model';
+import { Movie, MovieGenre } from '../api/movies/model/movies.model';
 
 const movies = [
   {

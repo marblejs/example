@@ -1,11 +1,11 @@
 import * as faker from 'faker';
-import { MovieDao } from '../api/movie/model/movie.dao';
-import { MovieGenre, MovieActor } from '../api/movie/model/movie.model';
+import { MoviesDao } from '../api/movies/model/movies.dao';
+import { MovieGenre, MovieActor } from '../api/movies/model/movies.model';
 
 const movieGenres = Object.values(MovieGenre);
 
 export const mockMovie = async (actors: MovieActor[] = []) =>
-  MovieDao.model.create({
+  MoviesDao.model.create({
     imdbId: faker.random.uuid(),
     title: faker.name.title(),
     director: faker.name.findName() + ' ' + faker.name.lastName(),
