@@ -1,19 +1,19 @@
 import { combineRoutes, EffectFactory } from '@marblejs/core';
-import { getUsersEffect$ } from './effects/getUsers.effect';
+import { getUserListEffect$ } from './effects/getUserList.effect';
 import { getMeEffect$ } from './effects/getMe.effect';
 import { authorize$ } from '../auth/middlewares/auth.middleware';
 
-export const getUsers$ = EffectFactory
+export const getUserList$ = EffectFactory
   .matchPath('/')
   .matchType('GET')
-  .use(getUsersEffect$);
+  .use(getUserListEffect$);
 
 export const getMe$ = EffectFactory
   .matchPath('/me')
   .matchType('GET')
   .use(getMeEffect$);
 
-export const user$ = combineRoutes('/user', {
-  effects: [getUsers$, getMe$],
+export const users$ = combineRoutes('/users', {
+  effects: [getUserList$, getMe$],
   middlewares: [authorize$],
 });

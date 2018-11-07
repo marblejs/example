@@ -1,17 +1,17 @@
 import * as request from 'supertest';
 import { app } from '../../../app';
-import { mockUser } from '../../../tests/user.mock';
+import { mockUser } from '../../../tests/users.mock';
 import { mockAuthorizationFor } from '../../../tests//auth.mock';
-import { UserDao } from '../model/user.dao';
+import { UsersDao } from '../model/users.dao';
 import { of } from 'rxjs';
 
 describe('getMeEffect$', () => {
-  test('GET /api/v1/user/me returns 200 and currently logged user details', async () => {
+  test('GET /api/v1/users/me returns 200 and currently logged user details', async () => {
     const user = await mockUser();
     const token = await mockAuthorizationFor(user)(app);
 
     return request(app)
-      .get('/api/v1/user/me')
+      .get('/api/v1/users/me')
       .set('Authorization', `Bearer ${token}`)
       .expect(200)
       .then(({ body }) => {
@@ -24,22 +24,22 @@ describe('getMeEffect$', () => {
       });
   });
 
-  test('GET /api/v1/user/me returns 401 if not authorized', async () =>
+  test('GET /api/v1/users/me returns 401 if not authorized', async () =>
     request(app)
-      .get('/api/v1/user/me')
+      .get('/api/v1/users/me')
       .expect(401, { error: { status: 401, message: 'Unauthorized' } })
   );
 
-  test('GET /api/v1/user/me returns 404 if user is not found', async () => {
+  test('GET /api/v1/users/me returns 404 if user is not found', async () => {
     const user = await mockUser();
     const token = await mockAuthorizationFor(user)(app);
 
-    jest.spyOn(UserDao, 'findById')
+    jest.spyOn(UsersDao, 'findById')
       .mockImplementationOnce(() => of(user))
       .mockImplementation(() => of(null));
 
     return request(app)
-      .get('/api/v1/user/me')
+      .get('/api/v1/users/me')
       .set('Authorization', `Bearer ${token}`)
       .expect(404, { error: { status: 404, message: 'User does not exist' } });
   });

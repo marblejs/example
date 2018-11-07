@@ -2,7 +2,7 @@ import * as request from 'supertest';
 import { app } from '../../../app';
 import { mockAuthorizationFor } from '../../../tests/auth.mock';
 import { mockActor } from '../../../tests/actors.mock';
-import { mockUser } from '../../../tests/user.mock';
+import { mockUser } from '../../../tests/users.mock';
 
 describe('getActorList$', () => {
   test('GET /api/v1/actors returns 200 and list of actors', async () => {

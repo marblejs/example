@@ -1,7 +1,7 @@
 import * as request from 'supertest';
 import { app } from '../../../app';
 import { mockAuthorizationFor } from '../../../tests/auth.mock';
-import { mockUser } from '../../../tests/user.mock';
+import { mockUser } from '../../../tests/users.mock';
 import { mockMovie } from '../../../tests/movies.mock';
 import { mockMovieActor } from '../../../tests/movieActor.mock';
 

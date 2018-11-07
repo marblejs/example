@@ -1,9 +1,9 @@
 import { Effect } from '@marblejs/core';
 import { map, flatMap } from 'rxjs/operators';
-import { UserDao } from '../model/user.dao';
+import { UsersDao } from '../model/users.dao';
 
-export const getUsersEffect$: Effect = req$ =>
+export const getUserListEffect$: Effect = req$ =>
   req$.pipe(
-    flatMap(UserDao.findAllPublic),
+    flatMap(UsersDao.findAllPublic),
     map(body => ({ body })),
   );

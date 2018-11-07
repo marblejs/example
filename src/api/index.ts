@@ -4,7 +4,7 @@ import { notFoundEffect$ } from './common/effects/notFound.effect';
 import { getFileEffect$ } from './common/effects/getFile.effect';
 import { getDocEffect$ } from './common/effects/getDoc.effect';
 import { auth$ } from './auth';
-import { user$ } from './user';
+import { users$ } from './users';
 import { actors$ } from './actors';
 import { movies$ } from './movies';
 
@@ -31,7 +31,7 @@ const notFound$ = EffectFactory
 export const api$ = combineRoutes('/api/v1', [
   root$,
   auth$,
-  user$,
+  users$,
   actors$,
   movies$,
   getFile$,

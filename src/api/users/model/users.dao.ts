@@ -1,8 +1,8 @@
 import { from } from 'rxjs';
-import { User, USER_SECURE_FIELDS, USER_PUBLIC_FIELDS } from './user.model';
+import { User, USER_SECURE_FIELDS, USER_PUBLIC_FIELDS } from './users.model';
 import { LoginCredentials } from '../../auth/model/login.model';
 
-export namespace UserDao {
+export namespace UsersDao {
   export const model = new User().getModelForClass(User);
 
   export const findByCredentials = (credentials: LoginCredentials) => from(

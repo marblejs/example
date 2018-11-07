@@ -1,9 +1,9 @@
 import * as faker from 'faker';
-import { UserRole } from '../api/user/model/user.model';
-import { UserDao } from '../api/user/model/user.dao';
+import { UserRole } from '../api/users/model/users.model';
+import { UsersDao } from '../api/users/model/users.dao';
 
 export const mockUser = async (roles = [UserRole.USER]) =>
-  UserDao.model.create({
+  UsersDao.model.create({
     firstName: faker.name.firstName(),
     lastName: faker.name.lastName(),
     email: faker.internet.email(),

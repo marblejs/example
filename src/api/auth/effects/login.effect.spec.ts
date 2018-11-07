@@ -1,7 +1,7 @@
 import { of } from 'rxjs';
 import * as request from 'supertest';
 import { app } from '../../../app';
-import { UserDao } from '../../user/model/user.dao';
+import { UsersDao } from '../../users/model/users.dao';
 
 const USER_MOCK = {
   firstName: 'test_firstName',
@@ -44,7 +44,7 @@ describe('Login effect', () => {
   );
 
   test('POST /api/v1/auth/login returns 403 if credentials are incorrect ', async () => {
-    spyOn(UserDao, 'findByCredentials').and.callFake(() => of(null));
+    spyOn(UsersDao, 'findByCredentials').and.callFake(() => of(null));
 
     return request(app)
       .post('/api/v1/auth/login')
@@ -60,7 +60,7 @@ describe('Login effect', () => {
   test('POST /api/v1/auth/login responds with JWT token', async () => {
     const expectedToken = 'TEST_TOKEN';
 
-    spyOn(UserDao, 'findByCredentials').and.callFake(() => of(USER_MOCK));
+    spyOn(UsersDao, 'findByCredentials').and.callFake(() => of(USER_MOCK));
     jwtMiddleware.generateToken = jest.fn(() => () => expectedToken);
 
     return request(app)

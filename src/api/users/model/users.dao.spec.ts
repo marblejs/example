@@ -1,15 +1,15 @@
-import { UserDao } from './user.dao';
-import { mockUser } from '../../../tests/user.mock';
+import { UsersDao } from './users.dao';
+import { mockUser } from '../../../tests/users.mock';
 import { LoginCredentials } from '../../auth/model/login.model';
 
-describe('User DAO', () => {
+describe('Users DAO', () => {
   test('#findByCredentials finds user by credentials', async (done) => {
     // given
     const user = await mockUser();
     const credentials: LoginCredentials = { login: user.email!, password: user.password! };
 
     // when
-    const result$ = UserDao.findByCredentials(credentials);
+    const result$ = UsersDao.findByCredentials(credentials);
 
     // then
     result$.subscribe(result => {
@@ -29,7 +29,7 @@ describe('User DAO', () => {
     const user = await mockUser();
 
     // when
-    const result$ = UserDao.findById(user.id);
+    const result$ = UsersDao.findById(user.id);
 
     // then
     result$.subscribe(result => {
@@ -49,7 +49,7 @@ describe('User DAO', () => {
     const user = await mockUser();
 
     // when
-    const result$ = UserDao.findByIdPublic(user.id);
+    const result$ = UsersDao.findByIdPublic(user.id);
 
     // then
     result$.subscribe(result => {
@@ -70,7 +70,7 @@ describe('User DAO', () => {
     const users = [await mockUser(), await mockUser()];
 
     // when
-    const result$ = UserDao.findAll();
+    const result$ = UsersDao.findAll();
 
     // then
     result$.subscribe(result => {
@@ -92,7 +92,7 @@ describe('User DAO', () => {
     const users = [await mockUser(), await mockUser()];
 
     // when
-    const result$ = UserDao.findAllPublic();
+    const result$ = UsersDao.findAllPublic();
 
     // then
     result$.subscribe(result => {
