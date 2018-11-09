@@ -18,6 +18,7 @@ export const cors$: Middleware = (req$, res) =>
         'POST',
         'PUT',
         'DELETE',
+        'HEAD',
       ]);
     }),
   );
