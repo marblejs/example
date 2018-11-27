@@ -1,4 +1,4 @@
-import { User, UserRole } from '../api/user/model/user.model';
+import { User, UserRole } from '../api/users/model/users.model';
 import * as faker from 'faker';
 import { generateCollectionFromModel } from './generator';
 

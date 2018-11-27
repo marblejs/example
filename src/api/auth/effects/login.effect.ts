@@ -4,7 +4,7 @@ import { generateToken } from '@marblejs/middleware-jwt';
 import { of, throwError } from 'rxjs';
 import { mergeMap, map, catchError } from 'rxjs/operators';
 import { generateTokenPayload } from '../helpers/token.helper';
-import { UserDao } from '../../user/model/user.dao';
+import { UsersDao } from '../../users/model/users.dao';
 import { neverNullable } from '../../../util';
 import { Config } from '../../../config';
 
@@ -20,7 +20,7 @@ export const loginEffect$: Effect = req$ =>
     use(loginValidator$),
     mergeMap(req => of(req).pipe(
       map(req => req.body),
-      mergeMap(UserDao.findByCredentials),
+      mergeMap(UsersDao.findByCredentials),
       mergeMap(neverNullable),
       map(generateTokenPayload),
       map(generateToken({ secret: Config.jwt.secret })),

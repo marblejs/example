@@ -1,0 +1,56 @@
+# Group Users
+
+## User list [/api/v1/users]
+
+### Get all users [GET]
+
+Retrieve all public data about users registered in the system
+
++ Request
+
+    + Headers
+
+            Authorization: Bearer {JWT_token}
+
++ Response 200 (application/json)
+
+    + Attributes (array[User])
+
++ Response 401 (application/json)
+
+        {
+            "error": {
+                "status": 401,
+                "message": "Unauthorized",
+            }
+        }
+
+## User [/api/v1/users/me]
+
+### Get me [GET]
+
+Retrieve currently logged-in user.
+
++ Request
+
+    + Headers
+
+            Authorization: Bearer {JWT_token}
+
++ Response 200 (application/json)
+
+    + Attributes (UserPrivate)
+
+## Data Structures
+
+### User
++ _id: 5bbb4aa99279d03578598282 (string, required)
++ firstName: Jamison (string, required)
++ lastName: McKenzie (string, required)
+
+### UserPrivate
++ _id: 5bbb4aa99279d03578598282 (string, required)
++ firstName: Jamison (string, required)
++ lastName: McKenzie (string, required)
++ email: test@email.com (string, required)
++ roles: ROLE_ADMIN, ROLE_USER (array, required)

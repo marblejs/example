@@ -5,9 +5,9 @@ import { preflightEffect$ } from './common/effects/preflight.effect';
 import { getFileEffect$ } from './common/effects/getFile.effect';
 import { getDocEffect$ } from './common/effects/getDoc.effect';
 import { auth$ } from './auth';
-import { user$ } from './user';
-import { actor$ } from './actor';
-import { movie$ } from './movie';
+import { users$ } from './users';
+import { actors$ } from './actors';
+import { movies$ } from './movies';
 
 const root$ = EffectFactory
   .matchPath('/')
@@ -37,9 +37,9 @@ const notFound$ = EffectFactory
 export const api$ = combineRoutes('/api/v1', [
   root$,
   auth$,
-  user$,
-  actor$,
-  movie$,
+  users$,
+  actors$,
+  movies$,
   getFile$,
   getDoc$,
   preflight$,
