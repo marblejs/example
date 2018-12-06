@@ -1,5 +1,5 @@
-import { mockMovie } from '../../../tests/movie.mock';
-import { MovieDao } from '../../movie/model/movie.dao';
+import { mockMovie } from '../../../tests/movies.mock';
+import { MoviesDao } from '../../movies/model/movies.dao';
 import { applyCollectionQuery, SortDir } from './collectionQuery.helper';
 
 describe('#applyCollectionQuery', () => {
@@ -13,7 +13,7 @@ describe('#applyCollectionQuery', () => {
   test('sorts query by given field ascending', async () => {
     // given
     const query = { sortBy: 'metascore', limit: 0, sortDir: SortDir.ASC, page: 1 };
-    const dbQuery = () => MovieDao.model.find();
+    const dbQuery = () => MoviesDao.model.find();
 
     // when
     const { collection, total } = await applyCollectionQuery(query)(dbQuery);
@@ -28,7 +28,7 @@ describe('#applyCollectionQuery', () => {
   test('sorts query by given field descending', async () => {
     // given
     const query = { sortBy: 'metascore', limit: 0, sortDir: SortDir.DESC, page: 1 };
-    const dbQuery = () => MovieDao.model.find();
+    const dbQuery = () => MoviesDao.model.find();
 
     // when
     const { collection, total } = await applyCollectionQuery(query)(dbQuery);
@@ -43,7 +43,7 @@ describe('#applyCollectionQuery', () => {
   test('paginates query by given limit and page number', async () => {
     // given
     const query = { sortBy: '_id', limit: 2, sortDir: SortDir.ASC };
-    const dbQuery = () => MovieDao.model.find();
+    const dbQuery = () => MoviesDao.model.find();
 
     // when
     const { collection: coll1, total: total1 } = await applyCollectionQuery({ ...query, page: 1 })(dbQuery);

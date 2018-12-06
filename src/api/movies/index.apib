@@ -1,0 +1,111 @@
+# Group Movies
+
+## Movie list [/api/v1/movies{?limit,page,sortBy,sortDir}]
+
+### Get all movies [GET]
+
+Retrieve all movies
+
++ Parameters
+    + limit (number, optional) - set page limit
+
+        + Default: `0`
+
+    + page (number, optional) - set current page
+
+        + Default: `1`
+
+    + sortBy (enum, optional) - sort by given field
+
+        + Default: `_id`
+
+        + Members
+            + `_id`
+            + 'title'
+            + 'director'
+            + 'year'
+            + `metascore`
+
+    + sortDir (enum, optional) - set sorting direction (ascending/descending)
+
+        + Default: `1`
+
+        + Members
+            + `-1`
+            + `1`
+
++ Request
+
+    + Headers
+
+            Authorization: Bearer {JWT_token}
+
++ Response 200 (application/json)
+
+    + Attributes
+        - collection (array[Movie])
+        - total (number)
+
++ Response 401 (application/json)
+
+        {
+            "error": {
+                "status": 401,
+                "message": "Unauthorized",
+            }
+        }
+
+## Movie [/api/v1/movies/{imdbId}]
+
+### Get single movie [GET]
+
+Retrieve single movie
+
++ Request
+
+    + Headers
+
+            Authorization: Bearer {JWT_token}
+
++ Parameters
+
+    + imdbId (string) - Movie IMDB identifier
+
++ Response 200 (application/json)
+
+    + Attributes (Movie)
+
++ Response 401 (application/json)
+
+        {
+            "error": {
+                "status": 401,
+                "message": "Unauthorized",
+            }
+        }
+
++ Response 404 (application/json)
+
+        {
+            "error": {
+                "status": 404,
+                "message": "Movie does not exist",
+            }
+        }
+
+## Data Structures
+
+### Movie
++ _id: 5bbb4aa99279d03578598282 (string, required)
++ imdbId: nm0000093 (string, required)
++ title: World War Z (string, required)
++ director: David Fincher (string, required)
++ year: 2013 (number, required)
++ metascore: 63 (number, required)
++ actors (array)
+    + (MovieActor)
++ posterUrl: http://example.com/api/v1/assets/img/actors/nm0000093.jpg (string, required)
+
+### MovieActor
++ imdbId: nm0000093 (string, required)
++ name: Brad Pitt (string, required)

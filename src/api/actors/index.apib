@@ -1,0 +1,106 @@
+# Group Actors
+
+## Actor list [/api/v1/actors{?limit,page,sortBy,sortDir}]
+
+### Get all actors [GET]
+
+Retrieve all actors
+
++ Parameters
+    + limit (number, optional) - set page limit
+
+        + Default: `0`
+
+    + page (number, optional) - set current page
+
+        + Default: `1`
+
+    + sortBy (enum, optional) - sort by given field
+
+        + Default: `_id`
+
+        + Members
+            + `_id`
+            + 'name'
+            + 'country'
+            + 'gender'
+
+    + sortDir (enum, optional) - set sorting direction (ascending/descending)
+
+        + Default: `1`
+
+        + Members
+            + `-1`
+            + `1`
+
++ Request
+
+    + Headers
+
+            Authorization: Bearer {JWT_token}
+
++ Response 200 (application/json)
+
+    + Attributes
+        - collection (array[Actor])
+        - total (number)
+
++ Response 401 (application/json)
+
+        {
+            "error": {
+                "status": 401,
+                "message": "Unauthorized",
+            }
+        }
+
+## Actor [/api/v1/actors/{imdbId}]
+
+### Get single actor [GET]
+
+Retrieve single actor
+
++ Request
+
+    + Headers
+
+            Authorization: Bearer {JWT_token}
+
++ Parameters
+
+    + imdbId (string) - Actor IMDB identifier
+
++ Response 200 (application/json)
+
+    + Attributes (Actor)
+
++ Response 401 (application/json)
+
+        {
+            "error": {
+                "status": 401,
+                "message": "Unauthorized",
+            }
+        }
+
++ Response 404 (application/json)
+
+        {
+            "error": {
+                "status": 404,
+                "message": "Actor does not exist",
+            }
+        }
+
+## Data Structures
+
+### Actor
++ _id: 5bbb4aa99279d03578598282 (string, required)
++ imdbId: nm0000093 (string, required),
++ name: Brad Pitt (string, required),
++ birthday: Wed Dec 18 1963 01:00:00 GMT+0100 (string, required),
++ country: USA (string, required),
++ gender: male (enum, required),
+    + male (string)
+    + female (string)
++ photoUrl: http://example.com/api/v1/assets/img/actors/nm0000093.jpg (string, required),
