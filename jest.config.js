@@ -2,6 +2,7 @@ module.exports = {
   transform: {
     '^.+\\.tsx?$': 'ts-jest'
   },
+  testEnvironment: 'node',
   testMatch: ['**/*.spec.ts'],
   coverageDirectory: './coverage/',
   coveragePathIgnorePatterns: [
