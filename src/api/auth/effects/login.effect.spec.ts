@@ -1,7 +1,7 @@
 import { of } from 'rxjs';
 import * as request from 'supertest';
-import { app } from '../../../app';
-import { UsersDao } from '../../users/model/users.dao';
+import { app } from '@app';
+import { UsersDao } from '@api/users';
 
 const USER_MOCK = {
   firstName: 'test_firstName',

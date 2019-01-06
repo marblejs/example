@@ -1,4 +1,4 @@
-import { Database } from '../../connection/database';
+import { Database } from '@connection';
 
 let usersGeneratorModule;
 let actorsGeneratorModule;

@@ -1,6 +1,6 @@
 import { createServer, IncomingMessage, ServerResponse } from 'http';
 import chalk from 'chalk';
-import { Config } from '../config';
+import { Config } from '@config';
 
 export namespace Server {
   const { host, port } = Config.server;

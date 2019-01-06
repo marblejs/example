@@ -1,9 +1,5 @@
 import { combineRoutes, EffectFactory } from '@marblejs/core';
-import { versionEffect$ } from './common/effects/version.effect';
-import { notFoundEffect$ } from './common/effects/notFound.effect';
-import { preflightEffect$ } from './common/effects/preflight.effect';
-import { getFileEffect$ } from './common/effects/getFile.effect';
-import { getDocEffect$ } from './common/effects/getDoc.effect';
+import { versionEffect$, preflightEffect$, getDocEffect$, getFileEffect$, notFoundEffect$ } from './common/effects';
 import { auth$ } from './auth';
 import { users$ } from './users';
 import { actors$ } from './actors';

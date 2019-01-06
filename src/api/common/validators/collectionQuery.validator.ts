@@ -1,5 +1,5 @@
 import { validator$, Joi } from '@marblejs/middleware-joi';
-import { SortDir } from '../helpers/collectionQuery.helper';
+import { SortDir } from '../helpers';
 
 export interface CollectionQueryValidatorOpts {
   sortBy: string[];

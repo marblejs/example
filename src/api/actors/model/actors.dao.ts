@@ -1,6 +1,6 @@
 import { from } from 'rxjs';
 import { Actor } from './actors.model';
-import { applyCollectionQuery, CollectionQueryOptions } from '../../common/helpers/collectionQuery.helper';
+import { applyCollectionQuery, CollectionQueryOptions } from '@api/common';
 
 export const SORTING_FIELDS = ['_id', 'name', 'country', 'gender'];
 

@@ -1,9 +1,6 @@
 import * as request from 'supertest';
-import { app } from '../../../app';
-import { mockAuthorizationFor } from '../../../tests/auth.mock';
-import { mockUser } from '../../../tests/users.mock';
-import { mockMovie } from '../../../tests/movies.mock';
-import { mockMovieActor } from '../../../tests/movieActor.mock';
+import { app } from '@app';
+import { mockAuthorizationFor, mockUser, mockMovie, mockMovieActor } from '@tests';
 
 describe('getMovieList$', () => {
   test('GET /api/v1/movies returns 200 and list of movies', async () => {
