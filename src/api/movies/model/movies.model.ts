@@ -37,7 +37,7 @@ export enum MovieGenre {
 }
 
 const setPosterUrl = (doc: MovieDocument) => {
-  doc.posterUrl = `/img/movie/${doc.imdbId}.jpg`;
+  doc.posterUrl = `/img/movies/${doc.imdbId}.jpg`;
 };
 
 @pre<Movie>('save', function(next) {
