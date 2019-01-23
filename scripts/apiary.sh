@@ -3,17 +3,17 @@
 echo "-------------"
 echo "API blueprint"
 
-if [[ $TRAVIS_PULL_REQUEST == "false" ]]; then
+if [[ "$TRAVIS_PULL_REQUEST" == "false" ]]; then
   echo "Skipping, publishing is enabled only for non-PR builds"
   exit 0
 fi
 
 ENV=""
-if [[ $TRAVIS_BRANCH == "master" ]]; then
+if [[ "$TRAVIS_BRANCH" == "master" ]]; then
   ENV="marblejs"
 fi
 
-if [[ $ENV == "" ]]; then
+if [[ "$ENV" == "" ]]; then
   echo "Skipping, unsupported environment for branch ${TRAVIS_BRANCH}"
   exit 0
 fi
