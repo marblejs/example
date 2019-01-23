@@ -37,6 +37,9 @@ $ yarn test:watch      ## run tests in watch mode
 $ yarn docker          ## start mongodb container
 ```
 
+## API doc
+You can reach the actual API documentation [here](https://marblejs.docs.apiary.io)
+
 ## License
 
 marble.js is MIT licensed
