@@ -3,7 +3,7 @@
 echo "-------------"
 echo "API blueprint"
 
-if [[ "$TRAVIS_PULL_REQUEST" == "false" ]]; then
+if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
   echo "Skipping, publishing is enabled only for non-PR builds"
   exit 0
 fi
