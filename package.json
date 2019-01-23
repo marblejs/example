@@ -6,7 +6,7 @@
   "scripts": {
     "heroku-prebuild": "cp ./src/config/env.ts.dist ./src/config/env.ts",
     "heroku-postbuild": "yarn db:seed",
-    "postinstall": "if [[ ${IS_HEROKU} == \"true\" ]]; then yarn build; else yarn build && yarn docker && yarn test; fi",
+    "postinstall": "if test ${IS_HEROKU} == \"true\"; then yarn build; else yarn build && yarn docker && yarn test; fi",
     "clear": "rimraf dist",
     "build": "yarn clear && tsc && yarn doc",
     "start": "yarn start:prod",
@@ -15,7 +15,7 @@
     "watch": "nodemon --watch src --ext ts --ignore '*.spec.ts' --exec yarn start:dev",
     "lint": "tslint --config tslint.json --project tsconfig.json",
     "pretest": "yarn lint",
-    "test": "if [[ ${IS_TRAVIS_CI} == \"true\" ]]; then jest --expand --forceExit --coverage; else jest --expand --coverage; fi",
+    "test": "if test ${IS_TRAVIS_CI} == \"true\"; then jest --expand --forceExit --coverage; else jest --expand --coverage; fi",
     "test:watch": "jest --expand --onlyChanged --watch",
     "docker": "docker-compose -f .docker/docker-compose.yml up --build -d",
     "doc": "hercule src/api/index.apib -o ./dist/docs.apib",
