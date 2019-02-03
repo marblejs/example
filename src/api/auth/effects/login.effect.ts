@@ -1,5 +1,5 @@
-import { use, HttpError, HttpStatus, Effect } from '@marblejs/core';
-import { validator$, Joi } from '@marblejs/middleware-joi';
+import { use, HttpError, HttpStatus, HttpEffect } from '@marblejs/core';
+import { requestValidator$, t } from '@marblejs/middleware-io';
 import { generateToken } from '@marblejs/middleware-jwt';
 import { of, throwError } from 'rxjs';
 import { mergeMap, map, catchError } from 'rxjs/operators';
@@ -8,16 +8,16 @@ import { UsersDao } from '../../users/model/users.dao';
 import { neverNullable } from '../../../util';
 import { Config } from '../../../config';
 
-const loginValidator$ = validator$({
-  body: Joi.object({
-    login: Joi.string().required(),
-    password: Joi.string().required(),
+const validator$ = requestValidator$({
+  body: t.type({
+    login: t.string,
+    password: t.string,
   })
 });
 
-export const loginEffect$: Effect = req$ =>
+export const loginEffect$: HttpEffect = req$ =>
   req$.pipe(
-    use(loginValidator$),
+    use(validator$),
     mergeMap(req => of(req).pipe(
       map(req => req.body),
       mergeMap(UsersDao.findByCredentials),

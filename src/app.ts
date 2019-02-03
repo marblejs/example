@@ -7,7 +7,7 @@ import { api$ } from './api';
 const middlewares = [
   cors$,
   logger$,
-  bodyParser$,
+  bodyParser$(),
 ];
 
 const effects = [

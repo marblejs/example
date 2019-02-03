@@ -1,7 +1,7 @@
-import { Effect, HttpStatus } from '@marblejs/core';
+import { HttpStatus, HttpEffect } from '@marblejs/core';
 import { mapTo } from 'rxjs/operators';
 
-export const preflightEffect$: Effect = req$ =>
+export const preflightEffect$: HttpEffect = req$ =>
   req$.pipe(
     mapTo({ status: HttpStatus.OK }),
   );

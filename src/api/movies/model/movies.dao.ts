@@ -1,13 +1,14 @@
 import { from } from 'rxjs';
 import { Movie } from './movies.model';
-import { applyCollectionQuery, CollectionQueryOptions } from '../../common/helpers/collectionQuery.helper';
+import { applyCollectionQuery } from '../../common/helpers/collectionQuery.helper';
+import { CollectionQuery } from '../../common/middlewares/collectionQuery.validator';
 
 export const SORTING_FIELDS = ['_id', 'title', 'director', 'year', 'metascore'];
 
 export namespace MoviesDao {
   export const model = new Movie().getModelForClass(Movie);
 
-  export const findAll = (query: CollectionQueryOptions) => from(
+  export const findAll = (query: CollectionQuery) => from(
     applyCollectionQuery(query)(() => model.find())
   );
 

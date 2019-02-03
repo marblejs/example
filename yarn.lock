@@ -16,35 +16,48 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
-"@marblejs/core@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@marblejs/core/-/core-1.2.1.tgz#7f3221899b4ffaf696a89b5654cdc056ad009af4"
+"@marblejs/core@2.0.0-rc.0":
+  version "2.0.0-rc.0"
+  resolved "https://registry.yarnpkg.com/@marblejs/core/-/core-2.0.0-rc.0.tgz#85ee3bcd220d2f02ab9364d4835b99389718a573"
+  integrity sha512-2L3el94qQlqHiQTLit9JZApXYrFV8KsGnZGsE2cGstjs6PYO8yP1wlsbmBFWYyPPsgb2bTfmpLLXalCKXrRftA==
   dependencies:
     chalk "~2.4.1"
     file-type "^8.0.0"
     mime "^2.3.1"
     path-to-regexp "^2.4.0"
 
-"@marblejs/middleware-body@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@marblejs/middleware-body/-/middleware-body-1.2.1.tgz#168a4fc11c387ede2620224a4138fc1da3bf3eb6"
+"@marblejs/middleware-body@2.0.0-rc.0":
+  version "2.0.0-rc.0"
+  resolved "https://registry.yarnpkg.com/@marblejs/middleware-body/-/middleware-body-2.0.0-rc.0.tgz#1803d6f300c1aa3e4509ea5dc1b138c184624022"
+  integrity sha512-h+jECFMxTwfcJlfRFRgMx9RIJBGfcV0VCPDH84pFRqF8nLqICriF6BMtB4JDb8ZHz7/btXwZDI5UJ/OA3HpjJQ==
 
-"@marblejs/middleware-joi@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@marblejs/middleware-joi/-/middleware-joi-1.2.1.tgz#17baa54d7a7fde5e5a90cdaa1ab4b50e12237344"
+"@marblejs/middleware-io@2.0.0-rc.0":
+  version "2.0.0-rc.0"
+  resolved "https://registry.yarnpkg.com/@marblejs/middleware-io/-/middleware-io-2.0.0-rc.0.tgz#513b05957a70673642d61c2701128b593025c276"
+  integrity sha512-wn6fXPhTpNG9t0O8T92dSTGRj96XYFU+s5inPZai1UV1jKb9xk7ewHiifIWdYxiylTFzbUHBlgyT6RizDYWafQ==
   dependencies:
-    joi "^13.3.0"
+    io-ts "~1.5.1"
 
-"@marblejs/middleware-jwt@1.2.1":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@marblejs/middleware-jwt/-/middleware-jwt-1.2.1.tgz#9c0d65df07c3318ed93cc6db118547f7039d3db1"
+"@marblejs/middleware-joi@2.0.0-rc.0":
+  version "2.0.0-rc.0"
+  resolved "https://registry.yarnpkg.com/@marblejs/middleware-joi/-/middleware-joi-2.0.0-rc.0.tgz#c24028e327b5e0bbc62c562a84d04154568c6a90"
+  integrity sha512-EcjPsoj3iIbIC+BMP699dVXSlDc7sZbQdinUhWATpRSEDT5F5oSkaZ+2MKBYywAPNftqcg7gFoFqvWqdwo6dqw==
+  dependencies:
+    "@types/joi" "^14.0.0"
+    joi "~14.3.0"
+
+"@marblejs/middleware-jwt@2.0.0-rc.0":
+  version "2.0.0-rc.0"
+  resolved "https://registry.yarnpkg.com/@marblejs/middleware-jwt/-/middleware-jwt-2.0.0-rc.0.tgz#d028bc4212444c50d2ce9879471c5d8d907cb739"
+  integrity sha512-yLCCzJatoGr0dL+AH0G5zw9v4xW5Ryyrz88uYmpSm6BvJ1ykshqijbWcr27A/XGooI2e/xVVfG48Jx0G8nLnug==
   dependencies:
     "@types/jsonwebtoken" "^7.2.8"
     jsonwebtoken "^8.3.0"
 
-"@marblejs/middleware-logger@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@marblejs/middleware-logger/-/middleware-logger-1.2.1.tgz#380043c48996efc230b39efdd9a3cf9fb04ccee4"
+"@marblejs/middleware-logger@2.0.0-rc.0":
+  version "2.0.0-rc.0"
+  resolved "https://registry.yarnpkg.com/@marblejs/middleware-logger/-/middleware-logger-2.0.0-rc.0.tgz#69560bf52fc3b5d504747f67880482e52651ed57"
+  integrity sha512-MLt0NPKpe0jDdohLRkVwJWCyMUklhKp6WgC8P30FAe0HLaq1+tAkdbiaDK3fdX2n8zgBDYOH8Oj+KPgQ5e5rPg==
   dependencies:
     chalk "^2.4.1"
 
@@ -80,6 +93,11 @@
 "@types/joi@^13.6.0":
   version "13.6.3"
   resolved "https://registry.yarnpkg.com/@types/joi/-/joi-13.6.3.tgz#79364839a9cc2c6d4d915ef8822e1f703e28648f"
+
+"@types/joi@^14.0.0":
+  version "14.3.0"
+  resolved "https://registry.yarnpkg.com/@types/joi/-/joi-14.3.0.tgz#8a735b7cf5d7f0f9edea778e9594620df5e94aa9"
+  integrity sha512-dkNE2Ibbe1eXqXAg8dmAXAjhuH/IUacNp7aG5ymdcIiktJIXZMCF+aEHvZAWjNQD+Cy9BYwkJla+19J/vmMAOg==
 
 "@types/jsonwebtoken@^7.2.8":
   version "7.2.8"
@@ -1595,6 +1613,11 @@ formidable@^1.2.0:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/formidable/-/formidable-1.2.1.tgz#70fb7ca0290ee6ff961090415f4b3df3d2082659"
 
+fp-ts@^1.0.0:
+  version "1.13.0"
+  resolved "https://registry.yarnpkg.com/fp-ts/-/fp-ts-1.13.0.tgz#004803434e6c92021232746a621d3c2429c3d5cc"
+  integrity sha512-QDPtCkuLay+dX3zinnvt0ER+j8mdWZZSpM//DIY3GycgwUTDPBKFD7CxX5DU/mIDstcWqGuuUSrMNtB6MWluCQ==
+
 fragment-cache@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/fragment-cache/-/fragment-cache-0.2.1.tgz#4290fad27f13e89be7f33799c6bc5a0abfff0d19"
@@ -1933,10 +1956,6 @@ hercule@^4.1.1:
     through2 "^2.0.0"
     through2-get "^0.1.0"
 
-hoek@5.x.x:
-  version "5.0.4"
-  resolved "https://registry.yarnpkg.com/hoek/-/hoek-5.0.4.tgz#0f7fa270a1cafeb364a4b2ddfaa33f864e4157da"
-
 hoek@6.x.x:
   version "6.1.2"
   resolved "https://registry.yarnpkg.com/hoek/-/hoek-6.1.2.tgz#99e6d070561839de74ee427b61aa476bd6bddfd6"
@@ -2078,6 +2097,13 @@ invariant@^2.2.2, invariant@^2.2.4:
 invert-kv@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/invert-kv/-/invert-kv-1.0.0.tgz#104a8e4aaca6d3d8cd157a8ef8bfab2d7a3ffdb6"
+
+io-ts@~1.5.1:
+  version "1.5.3"
+  resolved "https://registry.yarnpkg.com/io-ts/-/io-ts-1.5.3.tgz#d1afc719610c6b894d274f98a29069d12a165ab0"
+  integrity sha512-40zwszEu6XQKItt/9sLSuuvAM1cewWJmfU8rNwwppIrtgY/3/baePn0WCiI0NFmyN7JoHvkL7NxE8Sg7dIcFLg==
+  dependencies:
+    fp-ts "^1.0.0"
 
 is-accessor-descriptor@^0.1.6:
   version "0.1.6"
@@ -2739,11 +2765,12 @@ jest@^23.5.0:
     import-local "^1.0.0"
     jest-cli "^23.6.0"
 
-joi@^13.3.0:
-  version "13.7.0"
-  resolved "https://registry.yarnpkg.com/joi/-/joi-13.7.0.tgz#cfd85ebfe67e8a1900432400b4d03bbd93fb879f"
+joi@~14.3.0:
+  version "14.3.1"
+  resolved "https://registry.yarnpkg.com/joi/-/joi-14.3.1.tgz#164a262ec0b855466e0c35eea2a885ae8b6c703c"
+  integrity sha512-LQDdM+pkOrpAn4Lp+neNIFV3axv1Vna3j38bisbQhETPMANYRbFJFUyOZcOClYvM/hppMhGWuKSFEK9vjrB+bQ==
   dependencies:
-    hoek "5.x.x"
+    hoek "6.x.x"
     isemail "3.x.x"
     topo "3.x.x"
 
@@ -4305,15 +4332,10 @@ rx-lite@*, rx-lite@^4.0.8:
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/rx-lite/-/rx-lite-4.0.8.tgz#0b1e11af8bc44836f04a6407e92da42467b79444"
 
-rxjs@^6.3.3:
+rxjs@^6.3.3, rxjs@~6.3.3:
   version "6.3.3"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.3.3.tgz#3c6a7fa420e844a81390fb1158a9ec614f4bad55"
-  dependencies:
-    tslib "^1.9.0"
-
-rxjs@~6.2.2:
-  version "6.2.2"
-  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.2.2.tgz#eb75fa3c186ff5289907d06483a77884586e1cf9"
+  integrity sha512-JTWmoY9tWCs7zvIk/CvRjhjGaOd+OVBM987mxFo+OW66cGpdKjZcpmc74ES1sB//7Kl/PAe8+wEakuhG4pcgOw==
   dependencies:
     tslib "^1.9.0"
 
