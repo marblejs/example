@@ -1,4 +1,3 @@
-export * from './getDoc.effect';
 export * from './getFile.effect';
 export * from './notFound.effect';
 export * from './preflight.effect';

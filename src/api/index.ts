@@ -1,5 +1,5 @@
 import { combineRoutes, EffectFactory } from '@marblejs/core';
-import { versionEffect$, preflightEffect$, getDocEffect$, getFileEffect$, notFoundEffect$ } from './common/effects';
+import { versionEffect$, preflightEffect$, getFileEffect$, notFoundEffect$ } from './common/effects';
 import { auth$ } from './auth';
 import { users$ } from './users';
 import { actors$ } from './actors';
@@ -14,11 +14,6 @@ const preflight$ = EffectFactory
   .matchPath('*')
   .matchType('OPTIONS')
   .use(preflightEffect$);
-
-const getDoc$ = EffectFactory
-  .matchPath('/doc')
-  .matchType('GET')
-  .use(getDocEffect$);
 
 const getFile$ = EffectFactory
   .matchPath('/assets/:dir*')
@@ -37,7 +32,6 @@ export const api$ = combineRoutes('/api/v1', [
   actors$,
   movies$,
   getFile$,
-  getDoc$,
   preflight$,
   notFound$
 ]);

@@ -16,6 +16,7 @@ before_install:
 - docker-compose -f .docker/docker-compose.yml up --build -d
 - sleep 5
 install:
+- gem install apiaryio
 - cp src/config/env.ts.dist src/config/env.ts
 - npm install -g codecov
 - npm install -g yarn
@@ -23,6 +24,7 @@ install:
 script:
 - yarn test
 - codecov
+- ./scripts/apiary.sh
 branches:
   only:
   - master
