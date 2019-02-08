@@ -24,5 +24,14 @@ module.exports = {
     'ts-jest': {
       tsConfigFile: './tsconfig.json',
     }
+  },
+  moduleNameMapper: {
+    '@app': '<rootDir>/src/app.ts',
+    '@api/(.*)': '<rootDir>/src/api/$1',
+    '@config': '<rootDir>/src/config',
+    '@connection': '<rootDir>/src/connection',
+    '@seed': '<rootDir>/src/seed',
+    '@tests': '<rootDir>/src/tests',
+    '@util': '<rootDir>/src/util',
   }
 };

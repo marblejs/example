@@ -1,9 +1,6 @@
 import * as request from 'supertest';
-import { app } from '../../../app';
-import { mockAuthorizationFor } from '../../../tests/auth.mock';
-import { mockUser } from '../../../tests/users.mock';
-import { mockMovie } from '../../../tests/movies.mock';
-import { mockMovieActor } from '../../../tests/movieActor.mock';
+import { app } from '@app';
+import { mockAuthorizationFor, mockUser, mockMovie, mockMovieActor } from '@tests';
 
 describe('getMovie$', () => {
   test('GET /api/v1/movies/:id returns 200 if move is found', async () => {

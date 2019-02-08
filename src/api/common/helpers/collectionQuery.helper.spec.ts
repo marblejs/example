@@ -1,5 +1,5 @@
-import { mockMovie } from '../../../tests/movies.mock';
-import { MoviesDao } from '../../movies/model/movies.dao';
+import { mockMovie } from '@tests';
+import { MoviesDao } from '@api/movies';
 import { applyCollectionQuery, SortDir } from './collectionQuery.helper';
 
 describe('#applyCollectionQuery', () => {

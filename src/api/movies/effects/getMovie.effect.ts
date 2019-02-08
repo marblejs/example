@@ -1,9 +1,8 @@
 import { Effect, HttpStatus, HttpError } from '@marblejs/core';
 import { of, throwError } from 'rxjs';
 import { mergeMap, map, catchError } from 'rxjs/operators';
-import { MoviesDao } from '../model/movies.dao';
-import { neverNullable } from '../../../util';
-import { applyHostname } from '../../movies/model/movies.helpers';
+import { neverNullable } from '@util';
+import { MoviesDao, applyHostname } from '../model';
 
 export const getMovieEffect$: Effect = req$ =>
   req$.pipe(

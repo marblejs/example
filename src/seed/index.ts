@@ -1,4 +1,4 @@
-import { Database } from '../connection/database';
+import { Database } from '@connection';
 import { usersGenerator } from './users.generator';
 import { actorsGenerator } from './actors.generator';
 import { moviesGenerator } from './movies.generator';
