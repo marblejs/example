@@ -16,48 +16,51 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
-"@marblejs/core@2.0.0-rc.0":
-  version "2.0.0-rc.0"
-  resolved "https://registry.yarnpkg.com/@marblejs/core/-/core-2.0.0-rc.0.tgz#85ee3bcd220d2f02ab9364d4835b99389718a573"
-  integrity sha512-2L3el94qQlqHiQTLit9JZApXYrFV8KsGnZGsE2cGstjs6PYO8yP1wlsbmBFWYyPPsgb2bTfmpLLXalCKXrRftA==
+"@marblejs/core@2.0.0-rc.1":
+  version "2.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/@marblejs/core/-/core-2.0.0-rc.1.tgz#74e14de6a02451131e951b63a37d5e0eeb34601f"
+  integrity sha512-LSnH002biGOFzPf4brKvaC/oPBV8Aj2CxqG982GbDRZLNz7D7Ss+Qeh6VC/KQEyHIRer06dencwK/zqw4IIYcg==
   dependencies:
     chalk "~2.4.1"
     file-type "^8.0.0"
     mime "^2.3.1"
     path-to-regexp "^2.4.0"
 
-"@marblejs/middleware-body@2.0.0-rc.0":
-  version "2.0.0-rc.0"
-  resolved "https://registry.yarnpkg.com/@marblejs/middleware-body/-/middleware-body-2.0.0-rc.0.tgz#1803d6f300c1aa3e4509ea5dc1b138c184624022"
-  integrity sha512-h+jECFMxTwfcJlfRFRgMx9RIJBGfcV0VCPDH84pFRqF8nLqICriF6BMtB4JDb8ZHz7/btXwZDI5UJ/OA3HpjJQ==
+"@marblejs/middleware-body@2.0.0-rc.1":
+  version "2.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/@marblejs/middleware-body/-/middleware-body-2.0.0-rc.1.tgz#530101c899e718e68077eb1317ab0c2de6e7bfe4"
+  integrity sha512-K2c3DXciWM/XFfeufJvIN/kX+QqEhAJj1kMNwoUYLWQkamNgm8z5bmAE//UYcLpf/jP00VZBW/ysgqTbp+sKqg==
+  dependencies:
+    "@types/type-is" "~1.6.2"
+    type-is "~1.6.16"
 
-"@marblejs/middleware-io@2.0.0-rc.0":
-  version "2.0.0-rc.0"
-  resolved "https://registry.yarnpkg.com/@marblejs/middleware-io/-/middleware-io-2.0.0-rc.0.tgz#513b05957a70673642d61c2701128b593025c276"
-  integrity sha512-wn6fXPhTpNG9t0O8T92dSTGRj96XYFU+s5inPZai1UV1jKb9xk7ewHiifIWdYxiylTFzbUHBlgyT6RizDYWafQ==
+"@marblejs/middleware-io@2.0.0-rc.1":
+  version "2.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/@marblejs/middleware-io/-/middleware-io-2.0.0-rc.1.tgz#348f56270e260b2e5a792b88465893551785ccda"
+  integrity sha512-mWvEdb+s6Ql3CEennAA6Qa+Mf7gZ6ChQvNydo86Emavd6Xj70YT3fnJ72uInzXVf52AkmUM/RxjMonEu6f8CuA==
   dependencies:
     io-ts "~1.5.1"
 
-"@marblejs/middleware-joi@2.0.0-rc.0":
-  version "2.0.0-rc.0"
-  resolved "https://registry.yarnpkg.com/@marblejs/middleware-joi/-/middleware-joi-2.0.0-rc.0.tgz#c24028e327b5e0bbc62c562a84d04154568c6a90"
-  integrity sha512-EcjPsoj3iIbIC+BMP699dVXSlDc7sZbQdinUhWATpRSEDT5F5oSkaZ+2MKBYywAPNftqcg7gFoFqvWqdwo6dqw==
+"@marblejs/middleware-joi@2.0.0-rc.1":
+  version "2.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/@marblejs/middleware-joi/-/middleware-joi-2.0.0-rc.1.tgz#afd34cd9fa4443b2bec15f835eecf20fee17a41b"
+  integrity sha512-arH6nS87qyAcPM8jPTe3J5HqkG5LljhBdNBLAHKuhI9DvrE53v0q5DRCinSEcmCORF9gj85Afo0DbOlW/npreg==
   dependencies:
     "@types/joi" "^14.0.0"
     joi "~14.3.0"
 
-"@marblejs/middleware-jwt@2.0.0-rc.0":
-  version "2.0.0-rc.0"
-  resolved "https://registry.yarnpkg.com/@marblejs/middleware-jwt/-/middleware-jwt-2.0.0-rc.0.tgz#d028bc4212444c50d2ce9879471c5d8d907cb739"
-  integrity sha512-yLCCzJatoGr0dL+AH0G5zw9v4xW5Ryyrz88uYmpSm6BvJ1ykshqijbWcr27A/XGooI2e/xVVfG48Jx0G8nLnug==
+"@marblejs/middleware-jwt@2.0.0-rc.1":
+  version "2.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/@marblejs/middleware-jwt/-/middleware-jwt-2.0.0-rc.1.tgz#b332219cf2c48fd32d80cd86a295fecccfc8ac25"
+  integrity sha512-jP8MhULIpUObRPmfTKSYuZ3oHHaaG9SbBPTVdnOnsirqrnL1IE2u8Dtt27ryLfbFfao8KTOuhdyIU6UdaLYAhA==
   dependencies:
     "@types/jsonwebtoken" "^7.2.8"
     jsonwebtoken "^8.3.0"
 
-"@marblejs/middleware-logger@2.0.0-rc.0":
-  version "2.0.0-rc.0"
-  resolved "https://registry.yarnpkg.com/@marblejs/middleware-logger/-/middleware-logger-2.0.0-rc.0.tgz#69560bf52fc3b5d504747f67880482e52651ed57"
-  integrity sha512-MLt0NPKpe0jDdohLRkVwJWCyMUklhKp6WgC8P30FAe0HLaq1+tAkdbiaDK3fdX2n8zgBDYOH8Oj+KPgQ5e5rPg==
+"@marblejs/middleware-logger@2.0.0-rc.1":
+  version "2.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/@marblejs/middleware-logger/-/middleware-logger-2.0.0-rc.1.tgz#5c545e441106180030b866445371e35c977e70ed"
+  integrity sha512-oQYFkWp9LWrpG0Zj/Us2TLi1lyegUIPjjRpOAt93owTxyl2/mFbumLvmbkY2hj365OtzcLq7DnGAK+fsphXFhg==
   dependencies:
     chalk "^2.4.1"
 
@@ -141,6 +144,13 @@
   resolved "https://registry.yarnpkg.com/@types/supertest/-/supertest-2.0.7.tgz#46ff6508075cd4519736be060f0d6331a5c8ca7b"
   dependencies:
     "@types/superagent" "*"
+
+"@types/type-is@~1.6.2":
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/@types/type-is/-/type-is-1.6.2.tgz#38ee37fed94b4d2b88650292c3941600bda2815f"
+  integrity sha512-q8d51ZdF/D8xebrtNDsZH+4XBUFdz8xEgWhE4U4F4WWmcBZ8+i/r/qs9DmjAprYh5qQTYlY4BxaVKDrWIwNQ9w==
+  dependencies:
+    "@types/node" "*"
 
 "@types/uuid@^3.4.4":
   version "3.4.4"
@@ -3266,6 +3276,11 @@ math-random@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/math-random/-/math-random-1.0.1.tgz#8b3aac588b8a66e4975e3cdea67f7bb329601fac"
 
+media-typer@0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
+  integrity sha1-hxDXrwqmJvj/+hzgAWhUUmMlV0g=
+
 mem@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/mem/-/mem-1.1.0.tgz#5edd52b485ca1d900fe64895505399a0dfa45f76"
@@ -3360,9 +3375,10 @@ mime-db@~1.37.0:
   version "1.37.0"
   resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.37.0.tgz#0b6a0ce6fdbe9576e25f1f2d2fde8830dc0ad0d8"
 
-mime-types@^2.1.12, mime-types@~2.1.19:
+mime-types@^2.1.12, mime-types@~2.1.18, mime-types@~2.1.19:
   version "2.1.21"
   resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-2.1.21.tgz#28995aa1ecb770742fe6ae7e58f9181c744b3f96"
+  integrity sha512-3iL6DbwpyLzjR3xHSFNFeb9Nz/M8WDkX33t1GFQnFOllWk8pOrh/LSrB5OXlnlW5P9LH73X6loW/eogc+F5lJg==
   dependencies:
     mime-db "~1.37.0"
 
@@ -4970,6 +4986,14 @@ type-check@~0.3.2:
   resolved "https://registry.yarnpkg.com/type-check/-/type-check-0.3.2.tgz#5884cab512cf1d355e3fb784f30804b2b520db72"
   dependencies:
     prelude-ls "~1.1.2"
+
+type-is@~1.6.16:
+  version "1.6.16"
+  resolved "https://registry.yarnpkg.com/type-is/-/type-is-1.6.16.tgz#f89ce341541c672b25ee7ae3c73dee3b2be50194"
+  integrity sha512-HRkVv/5qY2G6I8iab9cI7v1bOIdhm94dVjQCPFElW9W+3GeDOSHmy2EBYe4VTApuzolPcmgFTN3ftVJRKR2J9Q==
+  dependencies:
+    media-typer "0.3.0"
+    mime-types "~2.1.18"
 
 typedarray@^0.0.6:
   version "0.0.6"

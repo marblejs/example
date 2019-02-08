@@ -30,7 +30,6 @@ describe('Login effect', () => {
           data: [{
             path : '',
             expected: '{ login: string, password: string }',
-            got: '""'
           }],
           context: 'body',
         },
