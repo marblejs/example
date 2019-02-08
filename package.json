@@ -18,7 +18,7 @@
     "test": "./scripts/test.sh",
     "test:watch": "jest --expand --onlyChanged --watch",
     "docker": "docker-compose -f .docker/docker-compose.yml up --build -d",
-    "doc": "hercule src/api/index.apib -o ./dist/docs.apib",
+    "doc": "mkdir -p ./dist && hercule src/api/index.apib -o ./dist/docs.apib",
     "doc:preview": "apiary preview --path dist/docs.apib",
     "db:seed": "yarn ts-node -r tsconfig-paths/register src/seed/index.ts"
   },
