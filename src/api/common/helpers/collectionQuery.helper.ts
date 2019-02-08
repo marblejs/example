@@ -1,5 +1,5 @@
 import { Document, DocumentQuery } from 'mongoose';
-import { CollectionQuery } from '../middlewares/collectionQuery.validator';
+import { CollectionQuery } from '../validators/collectionQuery.validator';
 
 export interface CollectionQueryResult<T> {
   collection: T;
