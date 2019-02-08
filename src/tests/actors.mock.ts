@@ -1,6 +1,5 @@
 import * as faker from 'faker';
-import { ActorsDao } from '../api/actors/model/actors.dao';
-import { Gender } from '../api/actors/model/actors.model';
+import { ActorsDao, Gender } from '@api/actors';
 
 export const mockActor = async () =>
   ActorsDao.model.create({

@@ -1,9 +1,8 @@
 import { use, HttpEffect } from '@marblejs/core';
+import { collectionQueryValidator$ } from '@api/common';
 import { of } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
-import { ActorsDao, SORTING_FIELDS } from '../model/actors.dao';
-import { applyHostnameForCollection } from '../model/actors.helpers';
-import { collectionQueryValidator$ } from '../../common/middlewares/collectionQuery.validator';
+import { ActorsDao, SORTING_FIELDS, applyHostnameForCollection } from '../model';
 
 export const getActorListEffect$: HttpEffect = req$ =>
   req$.pipe(

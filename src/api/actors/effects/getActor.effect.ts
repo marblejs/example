@@ -2,9 +2,8 @@ import { HttpError, HttpStatus, HttpEffect, use } from '@marblejs/core';
 import { requestValidator$, t } from '@marblejs/middleware-io';
 import { throwError, of } from 'rxjs';
 import { mergeMap, map, catchError } from 'rxjs/operators';
-import { ActorsDao } from '../model/actors.dao';
-import { neverNullable } from '../../../util';
-import { applyHostname } from '../model/actors.helpers';
+import { neverNullable } from '@util';
+import { ActorsDao, applyHostname } from '../model';
 
 const validator$ = requestValidator$({
   params: t.type({

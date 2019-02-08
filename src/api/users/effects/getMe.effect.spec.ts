@@ -1,9 +1,8 @@
 import * as request from 'supertest';
-import { app } from '../../../app';
-import { mockUser } from '../../../tests/users.mock';
-import { mockAuthorizationFor } from '../../../tests//auth.mock';
-import { UsersDao } from '../model/users.dao';
 import { of } from 'rxjs';
+import { app } from '@app';
+import { mockUser, mockAuthorizationFor } from '@tests';
+import { UsersDao } from '../model';
 
 describe('getMeEffect$', () => {
   test('GET /api/v1/users/me returns 200 and currently logged user details', async () => {
