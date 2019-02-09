@@ -20,8 +20,8 @@ export const applyCollectionQuery = ({
   async <T, U extends Document>(dbQuery: () => DocumentQuery<T, U>): Promise<CollectionQueryResult<T>> => {
     const totalQuery = dbQuery().estimatedDocumentCount();
     const collectionQuery = dbQuery()
-      .limit(limit)
-      .skip((page - 1) * limit)
+      .limit(Number(limit))
+      .skip((Number(page) - 1) * Number(limit))
       .sort({ [sortBy]: sortDir });
     const [total, collection] = [await totalQuery, await collectionQuery];
 

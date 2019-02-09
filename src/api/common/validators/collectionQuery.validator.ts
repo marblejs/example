@@ -13,8 +13,8 @@ const createQuery =  (opts: CollectionQueryValidatorOpts) => t.partial({
     t.literal(SortDir.ASC),
     t.literal(SortDir.DESC),
   ]),
-  limit: t.refinement(t.number, n => n >= 0),
-  page: t.refinement(t.number, n => n >= 1),
+  limit: t.refinement(t.union([t.string, t.number]), n => Number(n) >= 0, 'number.0+'),
+  page: t.refinement(t.union([t.string, t.number]), n => Number(n) >= 1, 'number.1+'),
 });
 
 export const collectionQueryValidator$ = (opts: CollectionQueryValidatorOpts) =>
