@@ -1,3 +1,19 @@
-export * from './actors.api';
-export * from './effects';
-export * from './model';
+import { combineRoutes, EffectFactory } from '@marblejs/core';
+import { authorize$ } from '../auth/middlewares/auth.middleware';
+import { getActorListEffect$ } from './effects/getActorList.effect';
+import { getActorEffect$ } from './effects/getActor.effect';
+
+const getActorList$ = EffectFactory
+  .matchPath('/')
+  .matchType('GET')
+  .use(getActorListEffect$);
+
+const getActor$ = EffectFactory
+  .matchPath('/:id')
+  .matchType('GET')
+  .use(getActorEffect$);
+
+export const actors$ = combineRoutes('/actors', {
+  effects: [getActorList$, getActor$],
+  middlewares: [authorize$],
+});

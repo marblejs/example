@@ -1,6 +1,6 @@
-import { mockActor } from '@tests';
-import { SortDir } from '@api/common';
 import { ActorsDao } from './actors.dao';
+import { mockActor } from '../../../tests/actors.mock';
+import { SortDir } from '../../common/helpers/collectionQuery.helper';
 
 describe('Actors DAO', () => {
   test('#findAll finds all actors', async (done) => {

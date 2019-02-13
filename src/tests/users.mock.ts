@@ -1,5 +1,6 @@
 import * as faker from 'faker';
-import { UserRole, UsersDao } from '@api/users';
+import { UserRole } from '../api/users/model/users.model';
+import { UsersDao } from '../api/users/model/users.dao';
 
 export const mockUser = async (roles = [UserRole.USER]) =>
   UsersDao.model.create({

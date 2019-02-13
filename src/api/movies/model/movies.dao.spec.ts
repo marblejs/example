@@ -1,6 +1,6 @@
-import { SortDir } from '@api/common';
-import { mockMovie } from '@tests';
 import { MoviesDao } from './movies.dao';
+import { mockMovie } from '../../../tests/movies.mock';
+import { SortDir } from '../../common/helpers/collectionQuery.helper';
 
 describe('Movies DAO', () => {
   test('#findAll finds all movies', async (done) => {

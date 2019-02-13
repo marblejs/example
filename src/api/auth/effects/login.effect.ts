@@ -3,10 +3,10 @@ import { validator$, Joi } from '@marblejs/middleware-joi';
 import { generateToken } from '@marblejs/middleware-jwt';
 import { of, throwError } from 'rxjs';
 import { mergeMap, map, catchError } from 'rxjs/operators';
-import { neverNullable } from '@util';
-import { Config } from '@config';
-import { UsersDao } from '@api/users/model';
-import { generateTokenPayload } from '../helpers';
+import { generateTokenPayload } from '../helpers/token.helper';
+import { UsersDao } from '../../users/model/users.dao';
+import { neverNullable } from '../../../util';
+import { Config } from '../../../config';
 
 const loginValidator$ = validator$({
   body: Joi.object({

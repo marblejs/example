@@ -1,5 +1,5 @@
 import * as request from 'supertest';
-import { app } from '@app';
+import { app } from '../../../app';
 
 describe('preflightEffect$', () => {
   test('GET /api/v1 responds with 200', async () =>

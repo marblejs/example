@@ -1,3 +1,19 @@
-export * from './movies.api';
-export * from './effects';
-export * from './model';
+import { combineRoutes, EffectFactory } from '@marblejs/core';
+import { authorize$ } from '../auth/middlewares/auth.middleware';
+import { getMovieEffect$ } from './effects/getMovie.effect';
+import { getMovieListEffect$ } from './effects/getMovieList.effect';
+
+const getMovieList$ = EffectFactory
+  .matchPath('/')
+  .matchType('GET')
+  .use(getMovieListEffect$);
+
+const getMovie$ = EffectFactory
+  .matchPath('/:id')
+  .matchType('GET')
+  .use(getMovieEffect$);
+
+export const movies$ = combineRoutes('/movies', {
+  effects: [getMovieList$, getMovie$],
+  middlewares: [authorize$],
+});

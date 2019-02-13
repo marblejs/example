@@ -1,6 +1,6 @@
 import { from } from 'rxjs';
-import { applyCollectionQuery, CollectionQueryOptions } from '@api/common';
 import { Movie } from './movies.model';
+import { applyCollectionQuery, CollectionQueryOptions } from '../../common/helpers/collectionQuery.helper';
 
 export const SORTING_FIELDS = ['_id', 'title', 'director', 'year', 'metascore'];
 

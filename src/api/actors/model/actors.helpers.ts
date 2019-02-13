@@ -1,8 +1,8 @@
 import { HttpRequest } from '@marblejs/core';
 import { InstanceType } from 'typegoose';
-import { getHostname } from '@util';
-import { CollectionQueryResult } from '@api/common';
 import { Actor } from './actors.model';
+import { getHostname } from '../../../util';
+import { CollectionQueryResult } from '../../common/helpers/collectionQuery.helper';
 
 export const applyHostnameForCollection = (req: HttpRequest) => (result: CollectionQueryResult<any>) => ({
   ...result,

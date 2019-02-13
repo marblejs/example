@@ -1,6 +1,8 @@
 import * as request from 'supertest';
-import { app } from '@app';
-import { mockAuthorizationFor, mockActor, mockUser } from '@tests';
+import { app } from '../../../app';
+import { mockAuthorizationFor } from '../../../tests/auth.mock';
+import { mockActor } from '../../../tests/actors.mock';
+import { mockUser } from '../../../tests/users.mock';
 
 describe('getActor$', () => {
   test('GET /api/v1/actors/:id returns 200 if actor is found', async () => {

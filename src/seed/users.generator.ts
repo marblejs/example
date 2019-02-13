@@ -1,6 +1,6 @@
+import { User, UserRole } from '../api/users/model/users.model';
 import * as faker from 'faker';
 import { generateCollectionFromModel } from './generator';
-import { UserRole, User } from '@api/users';
 
 const users = [
   {

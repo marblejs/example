@@ -1,8 +1,8 @@
 import { Effect, HttpError, HttpStatus } from '@marblejs/core';
 import { throwError } from 'rxjs';
 import { map, mergeMap, catchError } from 'rxjs/operators';
-import { neverNullable } from '@util';
-import { UsersDao } from '../model';
+import { UsersDao } from '../model/users.dao';
+import { neverNullable } from '../../../util';
 
 export const getMeEffect$: Effect = req$ =>
   req$.pipe(

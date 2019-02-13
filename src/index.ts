@@ -1,5 +1,6 @@
-import { Database, Server } from '@connection';
-import { app } from '@app';
+import { Database } from './connection/database';
+import { Server } from './connection/server';
+import { app } from './app';
 
 const bootstrap = async () => {
   await Database.connect();

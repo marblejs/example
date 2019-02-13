@@ -1,7 +1,7 @@
 import { of, throwError } from 'rxjs';
-import { UsersDao } from '@api/users';
 import { verifyPayload$ } from './auth.middleware';
-import { Payload } from '../helpers';
+import { Payload } from '../helpers/token.helper';
+import { UsersDao } from '../../users/model/users.dao';
 
 describe('Auth middleware', () => {
   test('#verifyPayload$ checks if user exists in DB', done => {

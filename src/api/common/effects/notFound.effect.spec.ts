@@ -1,5 +1,5 @@
 import * as request from 'supertest';
-import { app } from '@app';
+import { app } from '../../../app';
 
 describe('notFoundEffect$', () => {
   test('GET api/v1/undefined responds with 400', async () =>

@@ -1,8 +1,10 @@
 import { Effect, use } from '@marblejs/core';
 import { of } from 'rxjs';
 import { mergeMap, map } from 'rxjs/operators';
-import { CollectionQueryOptions, collectionQueryValidator$ } from '@api/common';
-import { MoviesDao, SORTING_FIELDS, applyHostnameForCollection } from '../model';
+import { MoviesDao, SORTING_FIELDS } from '../model/movies.dao';
+import { applyHostnameForCollection } from '../../movies/model/movies.helpers';
+import { collectionQueryValidator$ } from '../../common/middlewares/collectionQuery.validator';
+import { CollectionQueryOptions } from '../../common/helpers/collectionQuery.helper';
 
 type Query = CollectionQueryOptions;
 

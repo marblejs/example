@@ -1,5 +1,6 @@
 import * as faker from 'faker';
-import { MovieGenre, MovieActor, MoviesDao } from '@api/movies';
+import { MoviesDao } from '../api/movies/model/movies.dao';
+import { MovieGenre, MovieActor } from '../api/movies/model/movies.model';
 
 const movieGenres = Object.values(MovieGenre);
 

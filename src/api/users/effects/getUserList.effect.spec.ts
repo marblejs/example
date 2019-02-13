@@ -1,6 +1,7 @@
 import * as request from 'supertest';
-import { app } from '@app';
-import { mockAuthorizationFor, mockUser } from '@tests';
+import { app } from '../../../app';
+import { mockUser } from '../../../tests/users.mock';
+import { mockAuthorizationFor } from '../../../tests/auth.mock';
 
 describe('getUserListEffect$', () => {
   test('GET /api/v1/users/ returns 200 status and list of users', async () => {
@@ -23,6 +24,7 @@ describe('getUserListEffect$', () => {
         });
       });
   });
+
 
   test('GET /api/v1/users/ returns 401 status when not authorized', async () =>
     request(app)

@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src",
     "outDir": "./dist/",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -21,17 +20,8 @@
       "es2017"
     ],
     "typeRoots": [
-      "./node_modules/@types"
-    ],
-    "paths": {
-      "@app": ["./app"],
-      "@api/*": ["api/*"],
-      "@config": ["config"],
-      "@connection": ["connection"],
-      "@seed": ["seed"],
-      "@tests": ["tests"],
-      "@util": ["util"]
-    }
+      "./node_modules/@types",
+    ]
   },
   "include": [
     "./node_modules/@types",
