@@ -1,7 +1,8 @@
 import { of } from 'rxjs';
 import * as request from 'supertest';
-import { app } from '@app';
+import { createContext } from '@marblejs/core';
 import { UsersDao } from '@api/users';
+import httpListener from '@app';
 
 const USER_MOCK = {
   firstName: 'test_firstName',
@@ -10,6 +11,7 @@ const USER_MOCK = {
 
 describe('Login effect', () => {
   let jwtMiddleware;
+  const app = httpListener.run(createContext());
 
   beforeEach(() => {
     jest.unmock('@marblejs/middleware-jwt');

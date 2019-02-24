@@ -1,8 +1,11 @@
 import * as request from 'supertest';
-import { app } from '@app';
+import httpListener from '@app';
 import { mockAuthorizationFor, mockUser, mockActor } from '@tests';
+import { createContext } from '@marblejs/core';
 
 describe('getActorList$', () => {
+  const app = httpListener.run(createContext());
+
   test('GET /api/v1/actors returns 200 and list of actors', async () => {
     const actors = [await mockActor(), await mockActor(), await mockActor()];
     const user = await mockUser();
@@ -53,20 +56,12 @@ describe('getActorList$', () => {
         status: 400,
         message: 'Validation error',
         data: [{
-          path: 'limit.0',
+          path: 'limit',
           expected: 'number.0+',
           got: '"-1"',
         }, {
-          path: 'limit.1',
-          expected: 'undefined',
-          got: '"-1"',
-        }, {
-          path: 'page.0',
+          path: 'page',
           expected: 'number.1+',
-          got: '"0"',
-        }, {
-          path: 'page.1',
-          expected: 'undefined',
           got: '"0"',
         }],
         context: 'query'

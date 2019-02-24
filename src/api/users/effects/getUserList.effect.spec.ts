@@ -1,8 +1,11 @@
 import * as request from 'supertest';
-import { app } from '@app';
+import { createContext } from '@marblejs/core';
 import { mockAuthorizationFor, mockUser } from '@tests';
+import httpListener from '@app';
 
 describe('getUserListEffect$', () => {
+  const app = httpListener.run(createContext());
+
   test('GET /api/v1/users/ returns 200 status and list of users', async () => {
     const users = [await mockUser(), await mockUser()];
     const token = await mockAuthorizationFor(users[0])(app);
