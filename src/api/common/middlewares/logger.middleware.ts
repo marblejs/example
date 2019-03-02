@@ -1,4 +1,4 @@
-import { loggerWithOpts$ } from '@marblejs/middleware-logger';
+import { logger$ as log$ } from '@marblejs/middleware-logger';
 import { isTestEnv } from '@util';
 
-export const logger$ = loggerWithOpts$({ silent: isTestEnv() });
+export const logger$ = log$({ silent: isTestEnv() });

@@ -1,15 +1,18 @@
 import * as request from 'supertest';
-import { app } from '@app';
-import { mockAuthorizationFor, mockActor, mockUser } from '@tests';
+import httpListener from '@app';
+import { mockAuthorizationFor, mockUser, mockActor } from '@tests';
+import { createContext } from '@marblejs/core';
 
 describe('getActorList$', () => {
+  const app = httpListener.run(createContext());
+
   test('GET /api/v1/actors returns 200 and list of actors', async () => {
     const actors = [await mockActor(), await mockActor(), await mockActor()];
     const user = await mockUser();
     const token = await mockAuthorizationFor(user)(app);
 
     return request(app)
-      .get('/api/v1/actors')
+      .get(`/api/v1/actors?page=1&limit=3`)
       .set('Authorization', `Bearer ${token}`)
       .expect(200)
       .then(({ body }) => {
@@ -41,4 +44,27 @@ describe('getActorList$', () => {
       .get('/api/v1/actors')
       .expect(401, { error: { status: 401, message: 'Unauthorized' } })
   );
+
+  test('GET /api/v1/actors returns 400 if query is not valid', async () => {
+    const user = await mockUser();
+    const token = await mockAuthorizationFor(user)(app);
+
+    return request(app)
+      .get('/api/v1/actors?page=0&limit=-1')
+      .set('Authorization', `Bearer ${token}`)
+      .expect(400, { error: {
+        status: 400,
+        message: 'Validation error',
+        data: [{
+          path: 'limit',
+          expected: 'number.0+',
+          got: '"-1"',
+        }, {
+          path: 'page',
+          expected: 'number.1+',
+          got: '"0"',
+        }],
+        context: 'query'
+      }});
+  });
 });

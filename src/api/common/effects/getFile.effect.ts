@@ -1,14 +1,22 @@
 import * as path from 'path';
 import { throwError, of, iif } from 'rxjs';
 import { map, mergeMap, catchError } from 'rxjs/operators';
-import { Effect, HttpError, HttpStatus } from '@marblejs/core';
+import { HttpEffect, HttpError, HttpStatus, use } from '@marblejs/core';
+import { requestValidator$, t } from '@marblejs/middleware-io';
 import * as FileHelper from '@marblejs/core/dist/+internal/files';
 
 const STATIC_PATH = path.resolve(__dirname, '../../../../assets');
 
-export const getFileEffect$: Effect = req$ =>
+const validator$ = requestValidator$({
+  params: t.type({
+    dir: t.string,
+  })
+});
+
+export const getFileEffect$: HttpEffect = req$ =>
   req$.pipe(
-    mergeMap(req => of(req.params.dir as string).pipe(
+    use(validator$),
+    mergeMap(req => of(req.params.dir).pipe(
       mergeMap(FileHelper.readFile(STATIC_PATH)),
       map(body => ({ body })),
       catchError(error => iif(

@@ -1,8 +1,11 @@
 import * as request from 'supertest';
-import { app } from '@app';
+import { createContext } from '@marblejs/core';
 import { mockAuthorizationFor, mockUser, mockMovie, mockMovieActor } from '@tests';
+import httpListener from '@app';
 
 describe('getMovie$', () => {
+  const app = httpListener.run(createContext());
+
   test('GET /api/v1/movies/:id returns 200 if move is found', async () => {
     const user = await mockUser();
     const actors = [mockMovieActor(), mockMovieActor()];

@@ -1,7 +1,8 @@
 import { of } from 'rxjs';
 import * as request from 'supertest';
-import { app } from '@app';
+import { createContext } from '@marblejs/core';
 import { UsersDao } from '@api/users';
+import httpListener from '@app';
 
 const USER_MOCK = {
   firstName: 'test_firstName',
@@ -10,6 +11,7 @@ const USER_MOCK = {
 
 describe('Login effect', () => {
   let jwtMiddleware;
+  const app = httpListener.run(createContext());
 
   beforeEach(() => {
     jest.unmock('@marblejs/middleware-jwt');
@@ -20,15 +22,20 @@ describe('Login effect', () => {
     jest.clearAllMocks();
   });
 
-  test('POST /api/v1/auth/login returns 400 status if "login" is not provided', async () =>
+  test('POST /api/v1/auth/login returns 400 status if nothing is provided', async () =>
     request(app)
       .post('/api/v1/auth/login')
       .expect(400, {
         error: {
           status: 400,
-          message: '"login" is required',
-        }
-      })
+          message: 'Validation error',
+          data: [{
+            path : '',
+            expected: '{ login: string, password: string }',
+          }],
+          context: 'body',
+        },
+      }),
   );
 
   test('POST /api/v1/auth/login returns 400 status if "password" is not provided', async () =>
@@ -38,9 +45,14 @@ describe('Login effect', () => {
       .expect(400, {
         error: {
           status: 400,
-          message: '"password" is required',
-        }
-      })
+          message: 'Validation error',
+          data: [{
+            path : 'password',
+            expected: 'string',
+          }],
+          context: 'body',
+        },
+      }),
   );
 
   test('POST /api/v1/auth/login returns 403 if credentials are incorrect ', async () => {

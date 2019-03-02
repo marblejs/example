@@ -1,10 +1,13 @@
 import * as request from 'supertest';
 import { of } from 'rxjs';
-import { app } from '@app';
+import { createContext } from '@marblejs/core';
 import { mockUser, mockAuthorizationFor } from '@tests';
 import { UsersDao } from '../model';
+import httpListener from '@app';
 
 describe('getMeEffect$', () => {
+  const app = httpListener.run(createContext());
+
   test('GET /api/v1/users/me returns 200 and currently logged user details', async () => {
     const user = await mockUser();
     const token = await mockAuthorizationFor(user)(app);

@@ -1,9 +1,12 @@
 import * as request from 'supertest';
 import { throwError } from 'rxjs';
+import { createContext } from '@marblejs/core';
 import * as FileHelper from '@marblejs/core/dist/+internal/files';
-import { app } from '@app';
+import httpListener from '@app';
 
 describe('getFileEffect$', () => {
+  const app = httpListener.run(createContext());
+
   test('GET api/v1/assets/:dir responds with 200 for actors entity', async () =>
     request(app)
       .get('/api/v1/assets/img/actors/placeholder.jpg')
