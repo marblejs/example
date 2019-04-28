@@ -52,12 +52,12 @@
   },
   "homepage": "https://github.com/marblejs/marble-example#readme",
   "dependencies": {
-    "@marblejs/core": "2.0.0",
-    "@marblejs/middleware-body": "2.0.0",
-    "@marblejs/middleware-joi": "2.0.0",
-    "@marblejs/middleware-io": "2.0.0",
-    "@marblejs/middleware-jwt": "2.0.0",
-    "@marblejs/middleware-logger": "2.0.0",
+    "@marblejs/core": "2.1.0",
+    "@marblejs/middleware-body": "2.1.0",
+    "@marblejs/middleware-cors": "2.1.0",
+    "@marblejs/middleware-io": "2.1.0",
+    "@marblejs/middleware-jwt": "2.1.0",
+    "@marblejs/middleware-logger": "2.1.0",
     "@types/faker": "^4.1.4",
     "@types/joi": "^13.6.0",
     "@types/mongoose": "^5.2.12",
@@ -68,9 +68,9 @@
     "mongoose": "^5.2.14",
     "reflect-metadata": "^0.1.12",
     "rxjs": "~6.3.3",
+    "tsconfig-paths": "^3.7.0",
     "typegoose": "^5.2.1",
-    "uuid": "^3.3.2",
-    "tsconfig-paths": "^3.7.0"
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "@types/jest": "^23.3.1",
