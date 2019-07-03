@@ -7,8 +7,8 @@ export interface CollectionQueryResult<T> {
 }
 
 export enum SortDir {
-  ASC = 1,
-  DESC = -1,
+  ASC = '1',
+  DESC = '-1',
 }
 
 export const applyCollectionQuery = ({
