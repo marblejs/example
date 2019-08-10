@@ -2,55 +2,48 @@
   "name": "@marblejs/example",
   "version": "1.0.0",
   "description": "Example project written using Marble.js framework",
-  "main": "dist/index.js",
-  "scripts": {
-    "heroku-prebuild": "cp ./src/config/env.ts.dist ./src/config/env.ts",
-    "heroku-postbuild": "yarn db:seed",
-    "postinstall": "./scripts/postinstall.sh",
-    "clear": "rimraf dist",
-    "build": "yarn clear && tsc && yarn doc",
-    "start": "yarn start:prod",
-    "start:dev": "ts-node -r tsconfig-paths/register src/index.ts",
-    "start:prod": "node -r ./tsconfig-paths.js dist/index.js",
-    "watch": "nodemon --watch src --ext ts --ignore '*.spec.ts' --exec yarn start:dev",
-    "lint": "tslint --config tslint.json --project tsconfig.json",
-    "pretest": "yarn lint",
-    "test": "./scripts/test.sh",
-    "test:watch": "jest --expand --onlyChanged --watch",
-    "docker": "docker-compose -f .docker/docker-compose.yml up --build -d",
-    "doc": "mkdir -p ./dist && hercule src/api/index.apib -o ./dist/docs.apib",
-    "doc:preview": "apiary preview --path dist/docs.apib",
-    "db:seed": "yarn ts-node -r tsconfig-paths/register src/seed/index.ts"
-  },
+  "keywords": [
+    "Functional",
+    "Reactive",
+    "RxJS",
+    "Marble.js",
+    "Node",
+    "Node.js"
+  ],
   "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/marblejs/marble-example.git"
   },
-  "lint-staged": {
-    "*.ts": [
-      "yarn lint",
-      "git add",
-      "jest --bail --findRelatedTests --passWithNoTests"
-    ]
+  "bugs": {
+    "url": "https://github.com/marblejs/marble-example/issues"
   },
+  "homepage": "https://github.com/marblejs/marble-example#readme",
+  "author": "Jozef Flakus <hello@jflakus.com>",
+  "license": "MIT",
+  "main": "dist/index.js",
   "engines": {
     "node": ">= 8.0.0",
     "yarn": ">= 1.7.0",
     "npm": ">= 5.0.0"
   },
-  "keywords": [
-    "Functional",
-    "Reactive",
-    "RxJS",
-    "Marble.js"
-  ],
-  "author": "Jozef Flakus <hello@jflakus.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/marblejs/marble-example/issues"
+  "devDependencies": {
+    "@types/jest": "^23.3.1",
+    "@types/mock-fs": "^3.6.30",
+    "@types/supertest": "^2.0.4",
+    "hercule": "^4.1.1",
+    "husky": "^0.14.0",
+    "jest": "^23.5.0",
+    "lerna": "^2.11.0",
+    "lint-staged": "^7.2.2",
+    "nodemon": "^1.17.3",
+    "rimraf": "^2.6.2",
+    "supertest": "^3.0.0",
+    "ts-jest": "~23.1.3",
+    "ts-node": "^7.0.1",
+    "tslint": "~5.9.1",
+    "typescript": "~3.1.1"
   },
-  "homepage": "https://github.com/marblejs/marble-example#readme",
   "dependencies": {
     "@marblejs/core": "2.1.0",
     "@marblejs/middleware-body": "2.1.0",
@@ -72,21 +65,31 @@
     "typegoose": "^5.2.1",
     "uuid": "^3.3.2"
   },
-  "devDependencies": {
-    "@types/jest": "^23.3.1",
-    "@types/mock-fs": "^3.6.30",
-    "@types/supertest": "^2.0.4",
-    "hercule": "^4.1.1",
-    "husky": "^0.14.0",
-    "jest": "^23.5.0",
-    "lerna": "^2.11.0",
-    "lint-staged": "^7.2.2",
-    "nodemon": "^1.17.3",
-    "rimraf": "^2.6.2",
-    "supertest": "^3.0.0",
-    "ts-jest": "~23.1.3",
-    "ts-node": "^7.0.1",
-    "tslint": "~5.9.1",
-    "typescript": "~3.1.1"
+  "scripts": {
+    "env:setup": "cp ./src/util/config/env.ts.dist ./src/util/config/env.ts",
+    "heroku-prebuild": "yarn env:setup",
+    "heroku-postbuild": "yarn db:seed",
+    "postinstall": "./scripts/postinstall.sh",
+    "clear": "rimraf dist",
+    "build": "yarn clear && tsc && yarn doc",
+    "start": "yarn start:prod",
+    "start:dev": "ts-node -r tsconfig-paths/register src/index.ts",
+    "start:prod": "node -r ./tsconfig-paths.js dist/index.js",
+    "watch": "nodemon --watch src --ext ts --ignore '*.test.ts' --exec yarn start:dev",
+    "lint": "tslint --config tslint.json --project tsconfig.json",
+    "pretest": "yarn lint",
+    "test": "./scripts/test.sh",
+    "test:watch": "jest --expand --onlyChanged --watch",
+    "docker": "docker-compose -f .docker/docker-compose.yml up --build -d",
+    "doc": "mkdir -p ./dist && hercule src/util/docs/index.apib -o ./dist/docs.apib",
+    "doc:preview": "apiary preview --path dist/docs.apib",
+    "db:seed": "yarn ts-node -r tsconfig-paths/register src/util/database/seed.ts"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "yarn lint",
+      "git add",
+      "jest --bail --findRelatedTests --passWithNoTests"
+    ]
   }
 }

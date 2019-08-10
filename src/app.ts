@@ -1,7 +1,8 @@
 import { httpListener } from '@marblejs/core';
 import { bodyParser$ } from '@marblejs/middleware-body';
-import { logger$, cors$ } from './api/common';
-import { api$ } from './api';
+import { cors$ } from './middleware/cors';
+import { logger$ } from './middleware/logger';
+import { routes$ } from './resources';
 
 const middlewares = [
   cors$,
@@ -10,7 +11,7 @@ const middlewares = [
 ];
 
 const effects = [
-  api$,
+  routes$,
 ];
 
 export default httpListener({ middlewares, effects });

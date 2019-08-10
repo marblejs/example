@@ -21,7 +21,7 @@ In order to run tests locally, please install `docker` which containerizes the t
 ## Installation
 
 ```bash
-$ cp ./src/config/env.ts.dist ./src/config/env.ts
+$ yarn env:setup
 $ yarn
 ````
 

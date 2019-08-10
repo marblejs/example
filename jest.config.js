@@ -3,15 +3,15 @@ module.exports = {
     '^.+\\.tsx?$': 'ts-jest'
   },
   testEnvironment: 'node',
-  testMatch: ['**/*.spec.ts'],
+  testMatch: ['**/*.test.ts'],
   coverageDirectory: './coverage/',
   coveragePathIgnorePatterns: [
     '.d.ts$',
-    '.spec.ts',
+    '.test.ts',
     'src/index.ts',
-    'src/config',
-    'connection/database',
-    'connection/server',
+    'src/util/config',
+    'util/database/index.ts',
+    'util/server/index.ts',
   ],
   collectCoverageFrom : ['src/**/*.ts'],
   moduleFileExtensions: [
@@ -19,19 +19,18 @@ module.exports = {
     'js',
     'json'
   ],
-  setupTestFrameworkScriptFile: "./src/tests/setup.ts",
+  setupTestFrameworkScriptFile: "./src/util/testing/jestSetup.ts",
   globals: {
     'ts-jest': {
       tsConfigFile: './tsconfig.json',
     }
   },
   moduleNameMapper: {
-    '@app': '<rootDir>/src/app.ts',
-    '@api/(.*)': '<rootDir>/src/api/$1',
-    '@config': '<rootDir>/src/config',
-    '@connection': '<rootDir>/src/connection',
-    '@seed': '<rootDir>/src/seed',
-    '@tests': '<rootDir>/src/tests',
-    '@util': '<rootDir>/src/util',
+    '@config': '<rootDir>/src/util/config',
+    '@database/(.*)': '<rootDir>/src/util/database/$1',
+    // '@app': '<rootDir>/src/app.ts',
+    // '@resources/(.*)': '<rootDir>/src/resources/$1',
+    // '@seed': '<rootDir>/src/scripts/seed',
+    // '@util/(.*)': '<rootDir>/src/util/$1',
   }
 };
