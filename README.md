@@ -12,8 +12,11 @@
 </p>
 
 <p align="center">
-Example project written using Marble.js framework
+Example project written using Marble.js v2.0
 </p>
+
+## !
+The example project is written in version 2.x of Marble.js. The v3.0 rewrite will be available soon.
 
 ## Requirements
 In order to run tests locally, please install `docker` which containerizes the testing mongodb database.
