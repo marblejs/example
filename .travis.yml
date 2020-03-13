@@ -17,9 +17,9 @@ before_install:
 - sleep 5
 install:
 - gem install apiaryio
-- cp src/config/env.ts.dist src/config/env.ts
 - npm install -g codecov
 - npm install -g yarn
+- yarn env:setup
 - yarn
 script:
 - yarn test

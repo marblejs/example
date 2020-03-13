@@ -24,13 +24,12 @@
       "./node_modules/@types"
     ],
     "paths": {
-      "@app": ["./app"],
-      "@api/*": ["api/*"],
-      "@config": ["config"],
-      "@connection": ["connection"],
-      "@seed": ["seed"],
-      "@tests": ["tests"],
-      "@util": ["util"]
+      "@config": ["util/config"],
+      "@database/*": ["util/database/*"],
+      // "@app": ["./app"],
+      // "@resources/*": ["resources/*"],
+      // "@seed": ["seed"],
+      // "@util/*": ["util/*"],
     }
   },
   "include": [
